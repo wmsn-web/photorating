@@ -1,0 +1,16 @@
+@media screen and (max-width: 991px) {
+.header{padding: 15px;}
+.logo{float: left; width: 50%}
+.logo-brand{float: left; }
+.menu{float: left;  width: 50%}
+.menu-icon{float: right; margin-right: 145px}
+
+}
+@media screen and (max-width: 600px) {
+
+.header{padding: 15px;}
+.logo{float: left; width: 50%}
+.logo-brand{float: left; }
+.menu{float: left;  width: 50%}
+.menu-icon{float: right; margin-right: 100px}
+}
