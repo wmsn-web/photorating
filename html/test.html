@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>bounce demo</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <style>
+  #toggle {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+  }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+ 
+<p>Click anywhere to toggle the box.</p>
+<div id="toggle"></div>
+ 
+<script>
+$( document ).click(function() {
+  //$( "#toggle" ).toggle( "bounceinleft", { times: 3 }, "slow" );
+  $("#toggle").animate({top: '+=150px'}, {duration: 500, queue: true});
+});
+</script>
+ 
+</body>
+</html>
