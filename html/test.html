@@ -1,29 +1,272 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>bounce demo</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-  <style>
-  #toggle {
-    width: 100px;
-    height: 100px;
-    background: #ccc;
-  }
-  </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/images/favicon.png">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    
+    <title>Home</title>
 </head>
 <body>
- 
-<p>Click anywhere to toggle the box.</p>
-<div id="toggle"></div>
- 
-<script>
-$( document ).click(function() {
-  //$( "#toggle" ).toggle( "bounceinleft", { times: 3 }, "slow" );
-  $("#toggle").animate({top: '+=150px'}, {duration: 500, queue: true});
-});
-</script>
- 
+	<div class="container-fluid">
+	    <nav class="navbar navbar-expand navbar-dark">
+		        <div class="collapse navbar-collapse" id="navbarsExample02">
+		            <ul class="navbar-nav mr-auto">
+		                <li class="nav-item item-logo">Logo</li>
+		            </ul>
+		            <a href="javascript:void(0)" class="navbar-brand">
+		            	<span class="fltr">Filter</span>
+		            	<span class="menus">Menu</span>
+		                <img  id="tgl" src="assets/images/menubars.png" alt="menuBar" />
+		            </a>
+		        </div>
+		</nav>
+    </div>
+    
+        <div id="wrapper" class="toggled">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper2">
+            	<div class="cls">
+            		<img class="clsBtn" src="assets/images/closebtn.png" alt="close">
+            	</div>
+            	<div class="profile-pic">
+            		<img class="round" src="assets/images/profile.png" alt="profile">
+            	</div>
+            	<div class="sideMenu">
+	            	<ul>
+	                   <li><a class="actv" href="#">Home</a></li>
+	                   <li><a href="#">About Us</a></li>
+	                   <li><a href="#">Settings</a></li>
+	                   <li><a href="#">My Half friend</a></li>
+	                   <li><a href="#">My Full Friend</a></li>
+	            	</ul>
+               </div>
+            </div> <!-- /#sidebar-wrapper -->
+
+</div>
+<div class="mainGal">
+	<div align="center">
+		<div class="filters">
+			<button class="fltrBtn">Female</button>
+			<button class="fltrBtn">Female</button>
+			<button class="fltrBtn">Age</button>
+		</div>
+	</div>
+<section id="photos">
+	 	<div class="cont">
+		 	<img class="imgg" src="assets/images/1.png"  alt="gallery"><br>
+	        <div class="middle">
+	        	<div class="text">
+	        		<table class="tlb">
+	        			<tr>
+	        				<th>Nikita Kundu</th>
+	        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+	        			</tr>
+	        		</table>
+	        		<hr>
+	        		<table class="tlb">
+	        			<tr>
+	        				<th><img src="assets/images/icons/star.png" /> 20</th>
+	        				<td><button class="primary">Rate Now</button></td>
+	        			</tr>
+	        		</table>        		
+	        	</div>
+	        </div>        
+	    </div>
+	    <div class="cont">
+	 	<img class="imgg" src="assets/images/2.png" alt="gallery"><br>
+	 	<div class="middle">
+        	<div class="text">
+        		<table class="tlb">
+        			<tr>
+        				<th>Nikita Kundu</th>
+        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+        			</tr>
+        		</table>
+        		<hr>
+        		<table class="tlb">
+        			<tr>
+        				<th><img src="assets/images/icons/star.png" /> 20</th>
+        				<td><button class="primary">Rate Now</button></td>
+        			</tr>
+        		</table>        		
+        	</div>
+        </div>     
+	    </div>
+	    <div class="cont">
+	 	<img class="imgg" src="assets/images/3.png" alt="gallery"><br>
+	 	<div class="middle">
+        	<div class="text">
+        		<table class="tlb">
+        			<tr>
+        				<th>Nikita Kundu</th>
+        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+        			</tr>
+        		</table>
+        		<hr>
+        		<table class="tlb">
+        			<tr>
+        				<th><img src="assets/images/icons/star.png" /> 20</th>
+        				<td><button class="primary">Rate Now</button></td>
+        			</tr>
+        		</table>        		
+        	</div>
+        </div>     
+	    </div>
+	    <div class="cont">
+	 	<img class="imgg" src="assets/images/4.png" alt="gallery"><br>
+	 	<div class="middle">
+        	<div class="text">
+        		<table class="tlb">
+        			<tr>
+        				<th>Nikita Kundu</th>
+        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+        			</tr>
+        		</table>
+        		<hr>
+        		<table class="tlb">
+        			<tr>
+        				<th><img src="assets/images/icons/star.png" /> 20</th>
+        				<td><button class="primary">Rate Now</button></td>
+        			</tr>
+        		</table>        		
+        	</div>
+        </div>     
+	    </div>
+	    <div class="cont">
+	 	<img class="imgg" src="assets/images/5.png" alt="gallery"><br>
+	 	<div class="middle">
+        	<div class="text">
+        		<table class="tlb">
+        			<tr>
+        				<th>Nikita Kundu</th>
+        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+        			</tr>
+        		</table>
+        		<hr>
+        		<table class="tlb">
+        			<tr>
+        				<th><img src="assets/images/icons/star.png" /> 20</th>
+        				<td><button class="primary">Rate Now</button></td>
+        			</tr>
+        		</table>        		
+        	</div>
+        </div>     
+	    </div>
+	    <div class="cont">
+	 	<img class="imgg" src="assets/images/6.png" alt="gallery"><br>
+	 	<div class="middle">
+        	<div class="text">
+        		<table class="tlb">
+        			<tr>
+        				<th>Nikita Kundu</th>
+        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+        			</tr>
+        		</table>
+        		<hr>
+        		<table class="tlb">
+        			<tr>
+        				<th><img src="assets/images/icons/star.png" /> 20</th>
+        				<td><button class="primary">Rate Now</button></td>
+        			</tr>
+        		</table>        		
+        	</div>
+        </div>     
+	    </div>
+	    <div class="cont">
+	 	<img class="imgg" src="assets/images/7.png" alt="gallery"><br>
+	 	<div class="middle">
+        	<div class="text">
+        		<table class="tlb">
+        			<tr>
+        				<th>Nikita Kundu</th>
+        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+        			</tr>
+        		</table>
+        		<hr>
+        		<table class="tlb">
+        			<tr>
+        				<th><img src="assets/images/icons/star.png" /> 20</th>
+        				<td><button class="primary">Rate Now</button></td>
+        			</tr>
+        		</table>        		
+        	</div>
+        </div>     
+	    </div>
+	    <div class="cont">
+	 	<img class="imgg" src="assets/images/8.png" alt="gallery"><br>
+	 	<div class="middle">
+        	<div class="text">
+        		<table class="tlb">
+        			<tr>
+        				<th>Nikita Kundu</th>
+        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+        			</tr>
+        		</table>
+        		<hr>
+        		<table class="tlb">
+        			<tr>
+        				<th><img src="assets/images/icons/star.png" /> 20</th>
+        				<td><button class="primary">Rate Now</button></td>
+        			</tr>
+        		</table>        		
+        	</div>
+        </div>     
+	    </div>
+	    <div class="cont">
+	 	<img class="imgg" src="assets/images/8.png" alt="gallery"><br>
+	 	<div class="middle">
+        	<div class="text">
+        		<table class="tlb">
+        			<tr>
+        				<th>Nikita Kundu</th>
+        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+        			</tr>
+        		</table>
+        		<hr>
+        		<table class="tlb">
+        			<tr>
+        				<th><img src="assets/images/icons/star.png" /> 20</th>
+        				<td><button class="primary">Rate Now</button></td>
+        			</tr>
+        		</table>        		
+        	</div>
+        </div>     
+	    </div>
+	 </section>
+ </div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+            <script>
+               $(document).ready(function(){
+               	$(".filters").hide();
+               	$("#tgl").click(function(){
+               		$("#sidebar-wrapper2").attr("id","sidebar-wrapper");
+               	});
+               	$(".clsBtn").click(function(){
+               		$("#sidebar-wrapper").attr("id","sidebar-wrapper2");
+               	});
+               	$(".fltr").click(function(){
+               		$(".filters").show();
+               	});
+               });
+        </script>
+        
 </body>
 </html>
