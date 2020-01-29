@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/images/favicon.png">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+    
+    <title>Home</title>
+</head>
+<body>
+	<div class="container-fluid">
+	    <nav class="navbar navbar-expand navbar-dark">
+		        <div class="collapse navbar-collapse" id="navbarsExample02">
+		            <ul class="navbar-nav mr-auto">
+		                <li class="nav-item item-logo">Logo</li>
+		            </ul>
+		            <a href="javascript:void(0)" class="navbar-brand">
+		            	<span class="fltr">Filter</span>
+		            	<span class="menus">Menu</span>
+		                <img  id="tgl" src="assets/images/menubars.png" alt="menuBar" />
+		            </a>
+		        </div>
+		</nav>
+    </div>
+    
+        <div id="wrapper" class="toggleddd">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper2">
+            	<div class="cls">
+            		<img class="clsBtn" src="assets/images/closebtn.png" alt="close">
+            	</div>
+            	<div class="profile-pic">
+            		<img class="round" src="assets/images/profile.png" alt="profile">
+            	</div>
+            	<div class="sideMenu">
+	            	<ul>
+	                   <li><a class="actv" href="index">Home</a></li>
+	                   <li><a href="about">About Us</a></li>
+	                   <li><a href="settings">Settings</a></li>
+	                   <li><a href="my-half-friends">My Half friend</a></li>
+	                   <li><a href="my-friends">My Full Friend</a></li>
+	            	</ul>
+               </div>
+            </div> <!-- /#sidebar-wrapper -->
+
+</div>
+	<div class="container-set">
+		<div class="deskView">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="set_menu">
+						<ul>
+							<li id="mSeting">My Settings</li>
+							<li id="chngPass">Change Password</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div id="mset">
+						<table class="set_tbl table-striped">
+							<h5>Edit Profile</h5>
+							<tr>
+								<th>Name:</th>
+								<td><input type="text" class="form-control" name=""></td>
+							</tr>
+							<tr>
+								<th>Email:</th>
+								<td><input type="text" class="form-control" name=""></td>
+							</tr>
+							<tr>
+								<th>Location:</th>
+								<td><select class="form-control" name="">
+	                                <option>Select</option>
+								</select></td>
+							</tr>
+							<tr>
+								<th>Age:</th>
+								<td><select  name="">
+	                                   <option>Select</option>
+								    </select>
+								</td>
+							</tr>
+							<tr>
+								<th>Gender:</th>
+								<td>
+									<input type="radio"  name=""> Male
+								    <input type="radio"  name=""> Female
+							    </td>
+							</tr>
+							<tr>
+								<th>About Me:</th>
+								<td><textarea rows="3" class="form-control" name=""></textarea></td>
+							</tr>
+						</table>
+					    </div>
+						<div  id="chngp">
+							<table class="set_tbl table-striped">
+								<h5>Change Password</h5>
+								<tr>
+									<th>Password:</th>
+									<td><input type="text" class="form-control" name=""></td>
+								</tr>
+								<tr>
+									<th>Confirm Password:</th>
+									<td><input type="text" class="form-control" name=""></td>
+								</tr>
+							</table>
+				    </div>
+				</div>
+			</div>
+	    </div>
+	</div>
+
+
+<script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+            <script>
+               $(document).ready(function(){
+               	$(".filters").hide();
+               	$("#chngp").hide();
+               	$("mset").hide();
+               	$("#mSeting").css("color","#D85D72");
+               	$("#tgl").click(function(){
+               		$("#sidebar-wrapper2").attr("id","sidebar-wrapper");
+               	});
+               	$(".clsBtn").click(function(){
+               		$("#sidebar-wrapper").attr("id","sidebar-wrapper2");
+               	});
+               	
+               	$("#mSeting").click(function(){
+               		$("#mSeting").css("color","#D85D72");
+               		$("#chngPass").css("color","#707070");
+               		$("#chngp").hide();
+               		$("#mset").show();
+
+               	});
+               	$("#chngPass").click(function(){
+               		$("#mSeting").css("color","#707070");
+               		$("#chngPass").css("color","#D85D72");
+               		$("#chngp").show();
+               		$("#mset").hide();
+
+               	});
+
+               });
+        </script>
+        
+</body>
+</html>
