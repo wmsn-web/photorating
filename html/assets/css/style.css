@@ -234,15 +234,43 @@ Settings
 
 .container-set{padding-left: 150px; padding-right: 150px; padding-top: 55px; margin: auto;}
 .deskView{display: block}
+.mobView{display: none;}
 .set_menu{padding: 0}
 .set_menu ul li{list-style-type: none; padding: 12px; font-size: 22px; font-weight: 600; color: #707070;
 	cursor: pointer;
   }
+  
 .set_tbl{width: 100%; border: solid 1px #F0F0F0; padding: 10px}
 .set_tbl tr{padding: 10px}
 .set_tbl th, td{padding: 8px}
 /*///////////
 Settings
+/////////////*/
+
+/*///////////
+my Profile
+/////////////*/
+.set_menu_pro ul li {list-style-type: none; padding: 12px; font-size: 22px; font-weight: 600; color: #707070;
+	cursor: pointer;
+  }
+  .set_menu_pro ul li a{text-decoration: none; padding: 12px; font-size: 22px; font-weight: 600; color: #707070;
+	cursor: pointer;
+  }
+  .set_menu_pro .actv{color: #E65050}
+.aboutMe{padding: 35px 3px; color: #B4B3B3; font-size: 14px }
+.myLocation{padding: 25px 3px; color:#B4B3B3; font-size: 14px }
+.myRev{width:100%; padding: 15px 3px; color:#B4B3B3; font-size: 14px }
+.myRev ul li{list-style-type: none; display: inline-block; padding: 3px 25px; text-align: center;}
+.myRev ul li h3{color: #888888 }
+.pro_pic{width: 100%; padding: 10px 25px; }
+.pro_img{width: 150px; height: 150px; border-radius: 50%}
+.edtBtn{padding: 15px 50px;}
+.edtBtn button{font-size: 20px; background: #E65050; border:  solid 1px #E65050; color: #fff;
+   border-radius: 3px; padding: 10px 20px;
+}
+
+/*///////////
+my Profile
 /////////////*/
 #photos .imgg:hover {
   opacity: 0.3;

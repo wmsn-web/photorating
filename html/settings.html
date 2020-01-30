@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
     
-    <title>Home</title>
+    <title>Settings</title>
 </head>
 <body>
 	<div class="container-fluid">
@@ -41,9 +41,10 @@
             	</div>
             	<div class="sideMenu">
 	            	<ul>
-	                   <li><a class="actv" href="index">Home</a></li>
+	                   <li><a href="index">Home</a></li>
 	                   <li><a href="about">About Us</a></li>
-	                   <li><a href="settings">Settings</a></li>
+	                   <li><a class="actv" href="settings">Settings</a></li>
+	                   <li><a href="myprofile">My Profile</a></li>
 	                   <li><a href="my-half-friends">My Half friend</a></li>
 	                   <li><a href="my-friends">My Full Friend</a></li>
 	            	</ul>
@@ -52,16 +53,25 @@
 
 </div>
 	<div class="container-set">
-		<div class="deskView">
 			<div class="row">
 				<div class="col-md-4">
-					<div class="set_menu">
-						<ul>
-							<li id="mSeting">My Settings</li>
-							<li id="chngPass">Change Password</li>
-						</ul>
+					<div class="deskView">
+						<div class="set_menu">
+							<ul>
+								<li id="mSeting">My Settings</li>
+								<li id="chngPass">Change Password</li>
+							</ul>
+						</div>
 					</div>
-				</div>
+					<div class="mobView">
+						<div class="set_menu_mob">
+							<ul>
+								<li class="activeUl" id="mSeting1">My Settings</li>
+								<li id="chngPass1">Change Password</li>
+							</ul>
+						</div>
+				    </div>
+			    </div>
 				<div class="col-md-8">
 					<div id="mset">
 						<table class="set_tbl table-striped">
@@ -98,6 +108,10 @@
 								<th>About Me:</th>
 								<td><textarea rows="3" class="form-control" name=""></textarea></td>
 							</tr>
+							<tr>
+								<th>&nbsp;</th>
+								<td><button class="btn btn-danger">Save</button>
+							</tr>
 						</table>
 					    </div>
 						<div  id="chngp">
@@ -111,18 +125,23 @@
 									<th>Confirm Password:</th>
 									<td><input type="text" class="form-control" name=""></td>
 								</tr>
+								<tr>
+								<th>&nbsp;</th>
+								<td><button class="btn btn-danger">Save</button>
+							</tr>
 							</table>
 				    </div>
 				</div>
 			</div>
-	    </div>
 	</div>
 
 
 <script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/custom.js"></script>
 
             <script>
+            	/*
                $(document).ready(function(){
                	$(".filters").hide();
                	$("#chngp").hide();
@@ -150,7 +169,23 @@
 
                	});
 
+               	$("#mSeting1").click(function(){
+               		$("#mSeting1").addClass("activeUl")
+               		$("#chngPass1").removeClass("activeUl")
+               		$("#chngp").hide();
+               		$("#mset").show();
+
+               	});
+               	$("#chngPass1").click(function(){
+               		$("#mSeting1").removeClass("activeUl")
+               		$("#chngPass1").addClass("activeUl")
+               		$("#chngp").show();
+               		$("#mset").hide();
+
+               	});
+
                });
+               */
         </script>
         
 </body>

@@ -65,5 +65,15 @@
   column-count:         0;
   }
   .container-set{padding-left: 15px; padding-right: 15px; padding-top: 55px; margin: auto;}
+  .deskView{display: none;}
+  .mobView{display: block;}
+  .set_menu_mob{width: 100%;}
+  .set_menu_mob ul li {list-style-type: none; display: inline-block; padding: 5px 12px;
+   border: solid 1px #EEEDED; background: #EEEDED; color: #000; border-radius: 55px !important;
+  }
+
+  .set_menu_mob ul li.activeUl {border: solid 1px #E65050; background: #E65050; color: #fff}
+  /*.set_menu_mob ul li:first-child{border: solid 1px #E65050; background: #E65050; color: #fff}*/
+  .set_menu_mob ul li:last-child{margin-left: 15px}
   
 }
