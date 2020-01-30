@@ -1,62 +1,38 @@
-<!DOCTYPE html>
+<?php echo doctype(); ?>
 <html>
 <head>
-	<meta charset="utf-8">
+	<?php 
+      $meta = array(
+        array('name' => 'robots', 'content' => 'no-cache'),
+        array('name' => 'description', 'content' => 'My Great Site'),
+        array('name' => 'keywords', 'content' => 'love, passion, intrigue, deception'),
+        array('name' => 'robots', 'content' => 'no-cache'),
+        array('name' => 'Content-type', 'content' => 'text/html; charset=utf-8', 'type' => 'equiv'),
+        array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0')
+    );
+
+echo meta($meta);
+	 ?>
+	<!--meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="assets/images/favicon.png">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
-    
-    <title>Home</title>
+    ---->
+    <?php include("inc/layouts.php"); ?>
+<title>Home</title>
 </head>
 <body>
-	<div class="container-fluid">
-	    <nav class="navbar navbar-expand navbar-dark">
-		        <div class="collapse navbar-collapse" id="navbarsExample02">
-		            <ul class="navbar-nav mr-auto">
-		                <li class="nav-item item-logo">Logo</li>
-		            </ul>
-		            <a href="javascript:void(0)" class="navbar-brand">
-		            	<span class="fltr">Filter</span>
-		            	<span class="menus">Menu</span>
-		                <img  id="tgl" src="assets/images/menubars.png" alt="menuBar" />
-		            </a>
-		        </div>
-		</nav>
-    </div>
-    
-        <div id="wrapper" class="toggleddd">
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper2">
-            	<div class="cls">
-            		<img class="clsBtn" src="assets/images/closebtn.png" alt="close">
-            	</div>
-            	<div class="profile-pic">
-            		<img class="round" src="assets/images/profile.png" alt="profile">
-            	</div>
-            	<div class="sideMenu">
-	            	<ul>
-	                   <li><a class="actv" href="index">Home</a></li>
-	                   <li><a href="about">About Us</a></li>
-	                   <li><a href="settings">Settings</a></li>
-	                   <li><a href="myprofile">My Profile</a></li>
-	                   <li><a href="my-half-friends">My Half friend</a></li>
-	                   <li><a href="my-friends">My Full Friend</a></li>
-	            	</ul>
-               </div>
-            </div> <!-- /#sidebar-wrapper -->
+	<?php include("inc/main_menu.php"); ?>
+	
 
 
             <div id="prof-wrapper" class="toggleddd">
             <!-- Sidebar -->
             <div id="prof-sidebar-wrapper2">
             	<div id="profCls1" class="cls">
-            		<img class="clsBtn" src="assets/images/closebtn.png" alt="close">
+            		<?php echo img(array("src"=>"assets/images/closebtn.png","class"=>"clsBtn")); ?>
+            		<!---img class="clsBtn" src="assets/images/closebtn.png" alt="close"-->
             	</div>
             	<div class="cls">
             		
@@ -66,7 +42,9 @@
             		<div class="container-fluid">
 		            	<div class="row">
 	            			<div id="profImg" class="col-md-6">
-	            			   <img class="img-responsive" src="assets/images/11.png" alt="profile"></div>
+	            				<?php echo img(array("src"=>"assets/images/11.png","class"=>"img-responsive","alt"=>"profile")); ?>
+	            			   <!--img class="img-responsive" src="assets/images/11.png" alt="profile"--->
+	            			   </div>
 	            			<div id="proDtls" class="col-md-6 prof-dtls">
 	            				<h2>Nikita Kundu</h2>
 	            				<div class="abtMe">
@@ -74,9 +52,9 @@
 	            				   <p>"I'm a model, I love to spent time with my friends. Love to travel."</p>
 	            			    </div>
 	            			    <ul class="myIcon">
-                                   <li><img src="assets/images/icons/globe.png"> India</li>
-                                   <li><img src="assets/images/icons/zender.png"> Female</li>
-                                   <li><img src="assets/images/icons/star2.png"> 9.8</li>
+                                   <li><?php echo img('assets/images/icons/globe.png'); ?> India</li>
+                                   <li><?php echo img("assets/images/icons/zender.png"); ?> Female</li>
+                                   <li><?php echo img("assets/images/icons/star2.png"); ?> 9.8</li>
 	            			    </ul>
 	            			    <div class="myRate">
 		            			    <h4>My Rating:</h4>
@@ -318,15 +296,7 @@
 	 	</div>
 	 </section>
 
-
-
-
-
-
-
-<script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/custom.js"></script>
+<?php include("inc/js.php"); ?>
         
 </body>
 </html>
