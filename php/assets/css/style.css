@@ -179,7 +179,7 @@ body {
 	color: #fff;
 	
  background: #E65050;}
- .bottom-footer{margin-top: 30px;}
+ .bottom-footer{margin-top: 30px; position: relative; bottom: 0; width: 100%}
  .footer{padding: 20px; background: #707070; color: #fff}
 
 

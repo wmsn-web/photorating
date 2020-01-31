@@ -17,19 +17,21 @@
             <!-- Sidebar -->
             <div id="sidebar-wrapper2">
             	<div class="cls">
-            		<img class="clsBtn" src="assets/images/closebtn.png" alt="close">
+            		<?= img(array("class"=>"clsBtn", "src"=>"assets/images/closebtn.png", "alt"=>"close")); ?>
+            		
             	</div>
             	<div class="profile-pic">
-            		<img class="round" src="assets/images/profile.png" alt="profile">
+            		<?= img(array("class"=>"round", "src"=>"assets/images/profile.png", "alt"=>"profile")); ?>
+            		
             	</div>
             	<div class="sideMenu">
 	            	<ul>
-	                   <li><a class="actv" href="index">Home</a></li>
-	                   <li><a href="about">About Us</a></li>
-	                   <li><a href="settings">Settings</a></li>
-	                   <li><a href="myprofile">My Profile</a></li>
-	                   <li><a href="my-half-friends">My Half friend</a></li>
-	                   <li><a href="my-friends">My Full Friend</a></li>
+	                   <li><a class="actv" href="<?= base_url(); ?>">Home</a></li>
+	                   <li><a href="<?= base_url(); ?>about">About Us</a></li>
+	                   <li><a href="<?= base_url(); ?>settings">Settings</a></li>
+	                   <li><a href="<?= base_url(); ?>myprofile">My Profile</a></li>
+	                   <li><a href="<?= base_url(); ?>my-half-friends">My Half friend</a></li>
+	                   <li><a href="<?= base_url(); ?>my-friends">My Full Friend</a></li>
 	            	</ul>
                </div>
             </div> <!-- /#sidebar-wrapper -->

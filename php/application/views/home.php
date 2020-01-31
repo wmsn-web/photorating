@@ -29,8 +29,24 @@ echo meta($meta);
 
             <div id="prof-wrapper" class="toggleddd">
             <!-- Sidebar -->
-            <div id="prof-sidebar-wrapper2">
-            	<div id="profCls1" class="cls">
+            <?php if(isset($_GET['uid'])){ ?>
+            	<?php $proImg = $profDtls->image;
+            	list($width, $height, $type, $attr) = getimagesize("assets/images/$proImg"); 
+            	 $wdth =$width."<br>";
+            	 $hght =$height;
+            	if($wdth>$hght){
+            		
+            		$clss = 'class="col-md-12"';
+            		$clss2 = 'class="col-md-12 prof-dtls"';
+            	}else{
+            		$clss = 'class="col-md-6"';
+            		$clss2 = 'class="col-md-6 prof-dtls"';
+            	}
+
+                 
+            	 ?>
+            <div id="prof-sidebar-wrapper">
+            	<div Onclick="location.href='<?= base_url(); ?>'"  class="cls">
             		<?php echo img(array("src"=>"assets/images/closebtn.png","class"=>"clsBtn")); ?>
             		<!---img class="clsBtn" src="assets/images/closebtn.png" alt="close"-->
             	</div>
@@ -41,42 +57,44 @@ echo meta($meta);
             	<div class="prof-sideMenu">
             		<div class="container-fluid">
 		            	<div class="row">
-	            			<div id="profImg" class="col-md-6">
-	            				<?php echo img(array("src"=>"assets/images/11.png","class"=>"img-responsive","alt"=>"profile")); ?>
+	            			<div id="profImg" <?= $clss; ?>>
+	            				<?php echo img(array("src"=>"assets/images/$proImg","class"=>"img-responsive","alt"=>"profile")); ?>
 	            			   <!--img class="img-responsive" src="assets/images/11.png" alt="profile"--->
 	            			   </div>
-	            			<div id="proDtls" class="col-md-6 prof-dtls">
-	            				<h2>Nikita Kundu</h2>
+	            			<div id="proDtls" <?= $clss2; ?>>
+	            				<h2><?= $profDtls->name; ?></h2>
 	            				<div class="abtMe">
 	            				   <h3>About Me</h3>
-	            				   <p>"I'm a model, I love to spent time with my friends. Love to travel."</p>
+	            				   <p>"<?= $profDtls->about; ?>"</p>
 	            			    </div>
 	            			    <ul class="myIcon">
-                                   <li><?php echo img('assets/images/icons/globe.png'); ?> India</li>
-                                   <li><?php echo img("assets/images/icons/zender.png"); ?> Female</li>
+                                   <li><?php echo img('assets/images/icons/globe.png'); ?> <?= $profDtls->country; ?></li>
+                                   <li><?php echo img("assets/images/icons/zender.png"); ?> <?= $profDtls->gender; ?></li>
                                    <li><?php echo img("assets/images/icons/star2.png"); ?> 9.8</li>
 	            			    </ul>
 	            			    <div class="myRate">
 		            			    <h4>My Rating:</h4>
-		            			    <input type="radio" class="rdo" name="rate_star" id="one" value="1">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"one", "value"=>"1")); ?>
+		            			    <!--input type="radio" class="rdo" name="rate_star" id="one" value="1"-->
 		            			    <label class="lblStar" for="one">1</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="two" value="2">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"two", "value"=>"2")); ?>
+		            			    
 		            			    <label class="lblStar" for="two">2</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="three" value="3">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"three", "value"=>"3")); ?>
 		            			    <label class="lblStar" for="three">3</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="four" value="4">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"four", "value"=>"4")); ?>
 		            			    <label class="lblStar" for="four">4</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="five" value="5">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"five", "value"=>"5")); ?>
 		            			    <label class="lblStar" for="five">5</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="six" value="6">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"six", "value"=>"6")); ?>
 		            			    <label class="lblStar" for="six">6</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="seven" value="7">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"seven", "value"=>"7")); ?>
 		            			    <label class="lblStar" for="seven">7</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="eight" value="8">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"eight", "value"=>"8")); ?>
 		            			    <label class="lblStar" for="eight">8</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="nine" value="9">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"nine", "value"=>"9")); ?>
 		            			    <label class="lblStar" for="nine">9</label>
-		            			    <input type="radio" class="rdo" name="rate_star" id="ten" value="10">
+		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"ten", "value"=>"10")); ?>
 		            			    <label class="lblStar" for="ten">10</label>
 		            			    
 		            			    <button class="trBtn">Rate Now</button>
@@ -86,7 +104,7 @@ echo meta($meta);
             	    </div>
                </div>
             </div> <!-- /#sidebar-wrapper -->
-
+<?php } ?>
 
 </div>
  
@@ -99,186 +117,46 @@ echo meta($meta);
 		</div>
 	</div>
 	 <section id="photos">
+
+        <?php
+             foreach ($galDtls as $galDtl) {
+                 $image = $galDtl->image;
+
+              ?>
+             	
+
+            
+
 	 	<div class="cont">
-		 	<img class="imgg" src="assets/images/1.png"  alt="gallery"><br>
+	 		<?php echo img(array("class"=>"imgg", "src"=>"assets/images/$image",  "alt"=>"gallery")); ?>
+		 	<br>
 	        <div class="middle">
 	        	<div class="text">
 	        		<table class="tlb">
 	        			<tr>
-	        				<th>Nikita Kundu</th>
-	        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
+	        				<th><?= $galDtl->name; ?></th>
+	        				<td><?php echo img("assets/images/icons/comp1.png"); ?> 22</td>
 	        			</tr>
 	        		</table>
 	        		<hr>
 	        		<table class="tlb">
 	        			<tr>
-	        				<th><img src="assets/images/icons/star.png" /> 20</th>
-	        				<td><button id="rt1" class="primary">Rate Now</button></td>
+	        				<th><?php echo img("assets/images/icons/star.png"); ?> 20</th>
+	        				<td><button Onclick="location.href='?uid=<?= $galDtl->id; ?>'" class="primary">Rate Now</button></td>
 	        			</tr>
 	        		</table>        		
 	        	</div>
 	        </div>        
 	    </div>
-	    <div class="cont">
-	 	<img class="imgg" src="assets/images/2.png" alt="gallery"><br>
-	 	<div class="middle">
-        	<div class="text">
-        		<table class="tlb">
-        			<tr>
-        				<th>Nikita Kundu</th>
-        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
-        			</tr>
-        		</table>
-        		<hr>
-        		<table class="tlb">
-        			<tr>
-        				<th><img src="assets/images/icons/star.png" /> 20</th>
-        				<td><button class="primary">Rate Now</button></td>
-        			</tr>
-        		</table>        		
-        	</div>
-        </div>     
-	    </div>
-	    <div class="cont">
-	 	<img class="imgg" src="assets/images/3.png" alt="gallery"><br>
-	 	<div class="middle">
-        	<div class="text">
-        		<table class="tlb">
-        			<tr>
-        				<th>Nikita Kundu</th>
-        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
-        			</tr>
-        		</table>
-        		<hr>
-        		<table class="tlb">
-        			<tr>
-        				<th><img src="assets/images/icons/star.png" /> 20</th>
-        				<td><button  id="rt2" class="primary">Rate Now</button></td>
-        			</tr>
-        		</table>        		
-        	</div>
-        </div>     
-	    </div>
-	    <div class="cont">
-	 	<img class="imgg" src="assets/images/4.png" alt="gallery"><br>
-	 	<div class="middle">
-        	<div class="text">
-        		<table class="tlb">
-        			<tr>
-        				<th>Nikita Kundu</th>
-        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
-        			</tr>
-        		</table>
-        		<hr>
-        		<table class="tlb">
-        			<tr>
-        				<th><img src="assets/images/icons/star.png" /> 20</th>
-        				<td><button class="primary">Rate Now</button></td>
-        			</tr>
-        		</table>        		
-        	</div>
-        </div>     
-	    </div>
-	    <div class="cont">
-	 	<img class="imgg" src="assets/images/5.png" alt="gallery"><br>
-	 	<div class="middle">
-        	<div class="text">
-        		<table class="tlb">
-        			<tr>
-        				<th>Nikita Kundu</th>
-        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
-        			</tr>
-        		</table>
-        		<hr>
-        		<table class="tlb">
-        			<tr>
-        				<th><img src="assets/images/icons/star.png" /> 20</th>
-        				<td><button class="primary">Rate Now</button></td>
-        			</tr>
-        		</table>        		
-        	</div>
-        </div>     
-	    </div>
-	    <div class="cont">
-	 	<img class="imgg" src="assets/images/6.png" alt="gallery"><br>
-	 	<div class="middle">
-        	<div class="text">
-        		<table class="tlb">
-        			<tr>
-        				<th>Nikita Kundu</th>
-        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
-        			</tr>
-        		</table>
-        		<hr>
-        		<table class="tlb">
-        			<tr>
-        				<th><img src="assets/images/icons/star.png" /> 20</th>
-        				<td><button class="primary">Rate Now</button></td>
-        			</tr>
-        		</table>        		
-        	</div>
-        </div>     
-	    </div>
-	    <div class="cont">
-	 	<img class="imgg" src="assets/images/7.png" alt="gallery"><br>
-	 	<div class="middle">
-        	<div class="text">
-        		<table class="tlb">
-        			<tr>
-        				<th>Nikita Kundu</th>
-        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
-        			</tr>
-        		</table>
-        		<hr>
-        		<table class="tlb">
-        			<tr>
-        				<th><img src="assets/images/icons/star.png" /> 20</th>
-        				<td><button class="primary">Rate Now</button></td>
-        			</tr>
-        		</table>        		
-        	</div>
-        </div>     
-	    </div>
-	    <div class="cont">
-	 	<img class="imgg" src="assets/images/8.png" alt="gallery"><br>
-	 	<div class="middle">
-        	<div class="text">
-        		<table class="tlb">
-        			<tr>
-        				<th>Nikita Kundu</th>
-        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
-        			</tr>
-        		</table>
-        		<hr>
-        		<table class="tlb">
-        			<tr>
-        				<th><img src="assets/images/icons/star.png" /> 20</th>
-        				<td><button class="primary">Rate Now</button></td>
-        			</tr>
-        		</table>        		
-        	</div>
-        </div>     
-	    </div>
-	    <div class="cont">
-	 	<img class="imgg" src="assets/images/8.png" alt="gallery"><br>
-	 	<div class="middle">
-        	<div class="text">
-        		<table class="tlb">
-        			<tr>
-        				<th>Nikita Kundu</th>
-        				<td><img src="assets/images/icons/comp1.png" /> 22</td>
-        			</tr>
-        		</table>
-        		<hr>
-        		<table class="tlb">
-        			<tr>
-        				<th><img src="assets/images/icons/star.png" /> 20</th>
-        				<td><button class="primary">Rate Now</button></td>
-        			</tr>
-        		</table>        		
-        	</div>
-        </div>     
-	    </div>
+	    
+	    <?php } ?>
+	    
+	    
+	    
+	    
+	    
+
+	    
 	 </section>
 	 <ul class="pagination">
   <li><a href="#">1</a></li>
