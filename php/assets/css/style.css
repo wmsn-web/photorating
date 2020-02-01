@@ -90,7 +90,13 @@ body {
 .img-responsive{width:100% !important; height:auto !important;}
 .clsBtn{cursor: pointer;}
 .profile-pic{padding: 36px}
-.prof-pic{width:480px;}
+.prof-pics{width:480px;}
+.profile-pics ul{padding: 35px 8px;}
+.profile-pics ul li{list-style-type: none; display: inline-block; padding: 4px 14px;
+  border:solid 1px #E65050 ;color:#E65050; text-decoration: none; cursor: pointer;
+}
+
+.profile-pics ul li:hover{background: #E65050; color: #fff}
 .round{width: 220px; height: 220px;  border-radius: 50%; position: absolute; top: 55px}
 .sideMenu{position: absolute; right: 10px; padding-top: 45px }
 .prof-sideMenu{padding-left: 10px; padding-top: 75px }

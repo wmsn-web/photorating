@@ -173,7 +173,7 @@ echo meta($meta);
 	 		</div>
 	 	</div>
 	 </section>
-
+<?php include("inc/modal.php"); ?>
 <?php include("inc/js.php"); ?>
         
 </body>
