@@ -21,10 +21,11 @@ echo meta($meta);
     ---->
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
     <?php include("inc/layouts.php"); ?>
-<title>Home</title>
+
+<title>Signin</title>
 </head>
 <body>
-	<?php include("inc/main_menu.php"); ?>
+	<?php include("inc/login_menu.php"); ?>
 	
 
 
@@ -143,7 +144,7 @@ echo meta($meta);
 	        		<table class="tlb">
 	        			<tr>
 	        				<th><?php echo img("assets/images/icons/star.png"); ?> 20</th>
-	        				<td><button Onclick="location.href='?uid=<?= $galDtl->id; ?>'" class="primary">Rate Now</button></td>
+	        				<td><button Onclick="location.href='<?= base_url(); ?>?uid=<?= $galDtl->id; ?>'" class="primary">Rate Now</button></td>
 	        			</tr>
 	        		</table>        		
 	        	</div>
@@ -176,7 +177,6 @@ echo meta($meta);
 	 </section>
 <?php include("inc/modal.php"); ?>
 <?php include("inc/js.php"); ?>
-<script type="text/javascript" src="assets/js/wow.min.js"></script>
-        
+        <script type="text/javascript" src="assets/js/wow.min.js"></script>
 </body>
 </html>

@@ -253,6 +253,17 @@ Settings
 Settings
 /////////////*/
 
+/*/////////////////
+LOGIN PAGE
+///////////////*/
+
+.pgLogin{width: 100%; padding: 10px; border: solid 1px #F0F0F0}
+.btn-dangers{padding: 4px; width: 100%; border: solid 1px #ED2B17; background: #ED2B17; color: #fff}
+
+/*/////////////////
+LOGIN PAGE
+///////////////*/
+
 /*///////////
 my Profile
 /////////////*/

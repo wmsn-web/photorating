@@ -16,7 +16,7 @@
         <div id="wrapper" class="toggleddd">
 
             <!-- Sidebar -->
-            <div class="wow bounceInRight" data-wow-duration="0.9s" id="sidebar-wrapper2">
+            <div class="wow slideInRight" data-wow-duration="0.7s" id="sidebar-wrapper">
             	<div class="cls">
             		<?= img(array("class"=>"clsBtn", "src"=>"assets/images/closebtn.png", "alt"=>"close")); ?>
             		
@@ -30,22 +30,35 @@
                     <li data-toggle="modal" data-target="#myModal2">Signup</li>
                     </ul>
                 </div>
-                <?php }else{ ?>
-	            	<div class="profile-pic">
-	            		<?= img(array("class"=>"round", "src"=>"assets/images/profile.png", "alt"=>"profile")); ?>
-	            	</div>
                 <?php } ?>
-                
-            	<div class="sideMenu">
-	            	<ul>
-	                   <li><a class="actv" href="<?= base_url(); ?>">Home</a></li>
-	                   <li><a href="<?= base_url(); ?>about">About Us</a></li>
-	                   <li><a href="<?= base_url(); ?>settings">Settings</a></li>
-	                   <li><a href="<?= base_url(); ?>myprofile">My Profile</a></li>
-	                   <li><a href="<?= base_url(); ?>my-half-friends">My Half friend</a></li>
-	                   <li><a href="<?= base_url(); ?>my-friends">My Full Friend</a></li>
-	                   <li><a href="<?= base_url(); ?>home/logout">Logout</a></li>
-	            	</ul>
-               </div>
+	            	
+                    <div class="row">
+  <div class="col-md-10 offset-md-2">
+  	 <div class="pgLogin">
+  	 	<h3>Login</h3>
+  	 	<form>
+  	 		<div class="form-group">
+  	 			<label>Email Address</label>
+  	 			<input type="email" name="email" class="form-control">
+  	 		</div>
+  	 		<div class="form-group">
+  	 			<label>Password</label>
+  	 			<input type="password" name="password" class="form-control">
+  	 		</div>
+  	 		<div class="form-group">
+  	 			<input type="checkbox" name="check">
+  	 			Remember Me
+  	 			<?= nbs(8) ?>
+  	 			<a href="forgotPass">Forgot Password?</a>
+  	 		</div>
+  	 		<div class="form-group">
+  	 			<div align="center">
+  	 				<button class="btn-dangers">Login</button>
+  	 			</div>
+  	 		</div>
+  	 	</form>
+  	 </div>
+  </div>
+</div>
            
             </div> <!-- /#sidebar-wrapper -->

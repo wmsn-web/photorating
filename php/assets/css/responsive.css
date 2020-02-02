@@ -14,7 +14,7 @@
   position: fixed;
   right: 250px;
   top:1px;
-  width: 280px !important ;
+  width: 320px !important ;
   height: 100%;
   margin-right: -250px;
   background: rgba(255, 255, 255, 0.9);
@@ -36,8 +36,10 @@
     position: relative;
     margin-right: 0;
   }
+  .pgLogin{margin-left: 35px}
 }
-@media (max-width: 1200px) {
+@media (max-width: 1500px) {
+  .pgLogin{margin-left: -35px}
   #photos {
   -moz-column-count:    8;
   -webkit-column-count: 8;
@@ -45,6 +47,7 @@
   }
 }
 @media (max-width: 1000px) {
+  .pgLogin{margin-left: 15px}
   #photos {
   -moz-column-count:    3;
   -webkit-column-count: 3;
@@ -52,6 +55,7 @@
   }
 }
 @media (max-width: 800px) {
+  .pgLogin{margin-left: 10px}
   #photos {
   -moz-column-count:    2;
   -webkit-column-count: 2;
@@ -59,6 +63,7 @@
   }
 }
 @media (max-width: 991px) {
+  .pgLogin{margin-left: 5px}
   #photos {
   -moz-column-count:    1;
   -webkit-column-count: 1;
