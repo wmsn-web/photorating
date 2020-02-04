@@ -27,7 +27,7 @@
                     <!--li data-toggle="modal" data-target="#myModal">Login</li>
                     <li data-toggle="modal" data-target="#myModal2">Signup</li>-->
                     <li Onclick="location.href='<?= base_url(); ?>signin'">Login</li>
-                    <li data-toggle="modal" data-target="#myModal2">Signup</li>
+                    <li Onclick="location.href='<?= base_url(); ?>signUp'">Signup</li>
                     </ul>
                 </div>
                 <?php }else{ ?>

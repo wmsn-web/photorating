@@ -10,9 +10,12 @@ class Home extends CI_controller
 	    }
 	    $this->load->library('session');
 		$this->load->model("Home_model");
+		$logEmail ="";
+		
 		$galDtls = $this->Home_model->HomeGallery();
 		$profDtls = $this->Home_model->getProfile($uid);
 		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls]);
+	
 	}
 
 	public function login(){
@@ -20,14 +23,21 @@ class Home extends CI_controller
 			$passwordd = $this->input->post('password');
 			$password = md5($passwordd);
 			$this->load->model('LoginModel');
-			$userEmail = $this->LoginModel->login_valid($useremail, $password);
-			if($userEmail){
+			$userEmails = $this->LoginModel->login_valid($useremail, $password);
+			if($userEmails){
 				//Credential valid
+				$userEmail =$userEmails->email;
 				$this->load->library('session');
 				$this->session->set_userdata('userEmail',$userEmail);
-				return redirect('home');
+                  $act = $userEmails->activation;
+                  if($act=="off"){
+                  	return redirect('settings');
+                  }else{
+                      return redirect('home');
+                  }
+				
 			}else{
-				$this->load->view('login');
+				$this->load->view('signin');
 					}
 	}
 

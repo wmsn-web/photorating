@@ -4,7 +4,8 @@ class LoginModel extends CI_Model{
 		$q = $this->db->where(['email'=>$useremail,'password'=>$password])
 		              ->get('user_profile');
 		if($q->num_rows()){
-			return $q->row()->email;
+			$qs =$q->row();
+			return $qs;
 			//return TRUE;
 			}else{
 			return FALSE;

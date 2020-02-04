@@ -97,6 +97,7 @@ body {
 }
 
 .profile-pics ul li:hover{background: #E65050; color: #fff}
+.profile-pics ul li.acts{background: #E65050; color: #fff}
 .round{width: 220px; height: 220px;  border-radius: 50%; position: absolute; top: 55px}
 .sideMenu{position: absolute; right: 10px; padding-top: 45px }
 .prof-sideMenu{padding-left: 10px; padding-top: 75px }
@@ -259,6 +260,8 @@ LOGIN PAGE
 
 .pgLogin{width: 100%; padding: 10px; border: solid 1px #F0F0F0}
 .btn-dangers{padding: 4px; width: 100%; border: solid 1px #ED2B17; background: #ED2B17; color: #fff}
+.danger{border:solid 1px #f00; background: #FAD7D3}
+.sml{font-size: 9px; color: #626060}
 
 /*/////////////////
 LOGIN PAGE

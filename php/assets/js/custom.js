@@ -49,5 +49,39 @@ $(document).ready(function(){
                          $("#mset").hide();
 
                     });
-
+$("#email").focus();
                });
+
+$("#email").blur(function(){
+     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+     var eml = $("#email").val();
+     if(!eml.match(reg) || eml==""){
+          $("#spn").html('<i class="fa fa-close text-danger"></i>');
+          $("#email").addClass("danger");
+     }else{
+          
+          $("#spn").html('<i class="fa fa-check-circle text-success"></i>');
+          $("#email").removeClass("danger");
+     }
+     $("#pass").blur(function(){
+          var pas = $("#pass").val();
+          if(pas==""){
+               $("#spn2").html('<i class="fa fa-close text-danger"></i>');
+          $("#pass").addClass("danger");
+          }else{
+               $("#spn2").html('<i class="fa fa-check-circle text-success"></i>');
+          $("#pass").removeClass("danger");
+          }
+     });
+     $("#conpass").blur(function(){
+          var pas = $("#pass").val();
+          var cpas = $("#conpass").val();
+          if(cpas==""){
+               $("#spn3").html('<i class="fa fa-close text-danger"></i>');
+          $("#conpass").addClass("danger");
+          }else{
+               $("#spn3").html('<i class="fa fa-check-circle text-success"></i>');
+          $("#conpass").removeClass("danger");
+          }
+     });
+});
