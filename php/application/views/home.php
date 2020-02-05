@@ -30,15 +30,15 @@ echo meta($meta);
 
             <div id="prof-wrapper" class="toggleddd">
             <!-- Sidebar -->
-            <?php if(isset($_GET['uid'])){ ?>
-            	<?php $proImg = $profDtls->image;
-            	list($width, $height, $type, $attr) = getimagesize("assets/images/$proImg"); 
+            <?php if(isset($_GET['user_email'])){ ?>
+            	<?php $proImg = $getGal->image;
+            	list($width, $height, $type, $attr) = getimagesize("uploads/gallery/$proImg"); 
             	 $wdth =$width."<br>";
             	 $hght =$height;
             	if($wdth>$hght){
             		
-            		$clss = 'class="col-md-12"';
-            		$clss2 = 'class="col-md-12 prof-dtls"';
+            		$clss = 'class="col-md-10"';
+            		$clss2 = 'class="col-md-10 prof-dtls"';
             	}else{
             		$clss = 'class="col-md-6"';
             		$clss2 = 'class="col-md-6 prof-dtls"';
@@ -59,7 +59,7 @@ echo meta($meta);
             		<div class="container-fluid">
 		            	<div class="row">
 	            			<div id="profImg" <?= $clss; ?>>
-	            				<?php echo img(array("src"=>"assets/images/$proImg","class"=>"img-responsive","alt"=>"profile")); ?>
+	            				<?php echo img(array("src"=>"uploads/gallery/$proImg","class"=>"img-responsive","alt"=>"profile")); ?>
 	            			   <!--img class="img-responsive" src="assets/images/11.png" alt="profile"--->
 	            			   </div>
 	            			<div id="proDtls" <?= $clss2; ?>>
@@ -134,7 +134,7 @@ echo meta($meta);
             
 
 	 	<div class="cont">
-	 		<?php echo img(array("class"=>"imgg", "src"=>"assets/images/$image",  "alt"=>"gallery")); ?>
+	 		<?php echo img(array("class"=>"imgg", "src"=>"uploads/gallery/$image",  "alt"=>"gallery")); ?>
 		 	<br>
 	        <div class="middle">
 	        	<div class="text">
@@ -148,7 +148,7 @@ echo meta($meta);
 	        		<table class="tlb">
 	        			<tr>
 	        				<th><?php echo img("assets/images/icons/star.png"); ?> 20</th>
-	        				<td><button Onclick="location.href='?uid=<?= $galDtl->id; ?>'" class="primary">Rate Now</button></td>
+	        				<td><button Onclick="location.href='?uid=<?= $galDtl->id; ?>&user_email=<?= $galDtl->user_email; ?>'" class="primary">Rate Now</button></td>
 	        			</tr>
 	        		</table>        		
 	        	</div>

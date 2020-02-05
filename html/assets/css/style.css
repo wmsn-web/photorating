@@ -277,6 +277,29 @@ my Profile
 /*///////////
 my Profile
 /////////////*/
+
+/*/////////////
+My Photos
+///////////////*/
+.dispHide{display: none;}
+.img-Upl{width: 85px; height: 85px; cursor: pointer;}
+
+#myPhotos {
+  width:100%;
+  
+   line-height: 0;
+   
+   -webkit-column-count: 3;
+   -webkit-column-gap:   10px;
+   -moz-column-count:    3;
+   -moz-column-gap:      0px;
+   column-count:         3;
+   column-gap:           10px;
+}
+#myPhotos .cont img {margin-bottom: 10px}
+/*/////////////
+My Photos
+///////////////*/
 #photos .imgg:hover {
   opacity: 0.3;
 }

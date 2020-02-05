@@ -103,3 +103,10 @@ $("#cPss").keyup(function(){
      }
 });
 
+$("#uplLbl").change(function(){
+     var upl = $("#uplLbl").val();
+     $("#ddd").html("<i class='fa fa-check-circle fa-2x text-success'></i>");
+     $("#uupl").hide();
+     $("#uplBtn").css("display","block")
+});
+

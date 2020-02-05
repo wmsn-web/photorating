@@ -3,7 +3,12 @@ class Home extends CI_controller
 {
 	public function index()
 	{
-		if(isset($_GET['uid'])){
+		if(isset($_GET['user_email'])){
+		$user_email = $_GET['user_email'];
+	    }else{
+	    	$user_email = "";
+	    }
+	    if(isset($_GET['uid'])){
 		$uid = $_GET['uid'];
 	    }else{
 	    	$uid = "";
@@ -14,12 +19,14 @@ class Home extends CI_controller
      	$authMail = $this->session->userdata('userEmail');
      	$imgPro = $this->Home_model->getAuth($authMail);		
 		$galDtls = $this->Home_model->HomeGallery();
-		$profDtls = $this->Home_model->getProfile($uid);
-		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"imgPro"=>$imgPro]);
+		$profDtls = $this->Home_model->getProfile($user_email);
+		$getGal = $this->Home_model->getgal($uid);
+		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"imgPro"=>$imgPro,"getGal"=>$getGal]);
 	}else{
 		$galDtls = $this->Home_model->HomeGallery();
-		$profDtls = $this->Home_model->getProfile($uid);
-		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls]);
+		$profDtls = $this->Home_model->getProfile($user_email);
+		$getGal = $this->Home_model->getgal($uid);
+		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"getGal"=>$getGal]);
 	}
 	
 	}

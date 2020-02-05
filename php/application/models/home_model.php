@@ -16,9 +16,13 @@ class Home_model extends CI_model
 		$query = $this->db->query("SELECT * FROM gallery  ORDER BY id DESC");
 		return $query->result();		
 	}
-	public function getProfile($uid){
-		$getProfile = $this->db->query("SELECT * FROM user_profile WHERE id='$uid'");
+	public function getProfile($user_email){
+		$getProfile = $this->db->query("SELECT * FROM user_profile WHERE email='$user_email'");
 		return $getProfile->row();
+	}
+	public function getgal($uid){
+		$getgal = $this->db->query("SELECT * FROM gallery WHERE id='$uid'");
+		return $getgal->row();
 	}
 
 
