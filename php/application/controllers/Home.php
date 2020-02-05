@@ -10,11 +10,17 @@ class Home extends CI_controller
 	    }
 	    $this->load->library('session');
 		$this->load->model("Home_model");
-		$logEmail ="";
-		
+		if($this->session->userdata('userEmail')){
+     	$authMail = $this->session->userdata('userEmail');
+     	$imgPro = $this->Home_model->getAuth($authMail);		
+		$galDtls = $this->Home_model->HomeGallery();
+		$profDtls = $this->Home_model->getProfile($uid);
+		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"imgPro"=>$imgPro]);
+	}else{
 		$galDtls = $this->Home_model->HomeGallery();
 		$profDtls = $this->Home_model->getProfile($uid);
 		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls]);
+	}
 	
 	}
 

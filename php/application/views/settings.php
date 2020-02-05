@@ -1,3 +1,4 @@
+
 <?php echo doctype(); ?>
 <html>
 <head>
@@ -20,7 +21,7 @@ echo meta($meta);
     <meta name="author" content="">
     ---->
     <?php include("inc/layouts.php"); ?>
-<title>Home</title>
+<title>Settings</title>
 </head>
 <body>
 	<?php include("inc/main_menu.php"); ?>
@@ -368,32 +369,42 @@ echo meta($meta);
                                 <th>About Me:</th>
                                 <td><textarea rows="3" class="form-control" name="about"><?= $getDtlsd->name; ?></textarea></td>
                             </tr>
+                        <?php if($getDtlsd->image==""){ ?>
                             <tr>
                                 <th>Profile Picture:</th>
                                 <td>
                                     <input type="file" class="form-control-file" name="pro_img" required="required" />
                                 </td>
                             </tr>
+                        <?php } ?>
                             <tr>
                                 <th>&nbsp;</th>
-                                <td><button class="btn btn-danger">Save</button>
+                                <td><button class="btn btn-danger">Save</button></td>
                             </tr>
+                        </form>
                         </table>
                         </div>
                         <div  id="chngp">
                             <table class="set_tbl table-striped">
+                                <?= form_open("settings/changePass"); ?>
+                                <input type="hidden" name="email" value="<?= $getDtlsd->email ?>">
                                 <h5>Change Password</h5>
                                 <tr>
                                     <th>Password:</th>
-                                    <td><input type="text" class="form-control" name=""></td>
+                                    <td>
+                                        <?= form_input(array("type"=>"password", "id"=>"pss", "class"=>"form-control", "name"=>"psw")); ?> 
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Confirm Password:</th>
-                                    <td><input type="text" class="form-control" name=""></td>
+                                    <td>
+                                        <?= form_input(array("type"=>"password","id"=>"cPss", "class"=>"form-control", "name"=>"password")); ?> 
+                                        <span id="vldMsg"></span>
+                                    </td>
                                 </tr>
                                 <tr>
                                 <th>&nbsp;</th>
-                                <td><button class="btn btn-danger">Save</button>
+                                <td><button id="chPsBtn" class="btn btn-danger">Save</button>
                             </tr>
                         </form>
                             </table>

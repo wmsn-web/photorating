@@ -18,7 +18,7 @@ class SettingModel extends CI_model
                `country`='$country',
                `age`='$age',
                `gender`='$gender',
-               `about`='$about',`image`='$imgs' WHERE `email`='$email'");
+               `about`='$about',`image`='$imgs',`activation`='on' WHERE `email`='$email'");
 
 	if($updt){
 		return TRUE;
@@ -26,5 +26,17 @@ class SettingModel extends CI_model
 		return FALSE;
 	}
 }
+     public function ChangePass($password,$userEmail)
+     {
+     	$updt = $this->db->query("UPDATE `user_profile` SET 
+               `password`='$password'
+                WHERE `email`='$userEmail'");
+     	if($updt){
+		     return TRUE;
+	    }else{
+		    return FALSE;
+	}
+     }
+
 }
 ?>

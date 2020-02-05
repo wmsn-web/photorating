@@ -13,8 +13,11 @@ class Settings extends CI_controller
 			$logEmail = $this->session->userdata('userEmail');
 			$this->load->model("settingModel");
 			$getDtls = $this->settingModel->getPro($logEmail);
+            $this->load->model("Home_model");
+			$authMail = $this->session->userdata('userEmail');
+     	    $imgPro = $this->Home_model->getAuth($authMail);
 
-		$this->load->view("settings",['getDtlsd'=>$getDtls]);
+		$this->load->view("settings",['getDtlsd'=>$getDtls,"imgPro"=>$imgPro]);
 	}
 	}
 
@@ -59,7 +62,17 @@ class Settings extends CI_controller
 				
 				}
 			
+			public function changePass()
+			{
+				$passwords = $this->input->post('password');
+				$userEmail = $this->input->post('email');
+				$password = md5($passwords);
+				$this->load->model("settingModel");
+				$ChangePass = $this->settingModel->ChangePass($password,$userEmail);
+		        $this->session->set_flashdata("feedback","Password Changed Successfully");
 			
+				return redirect('settings');
+			}
 		
 	
 }

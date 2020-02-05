@@ -3,6 +3,7 @@ $(document).ready(function(){
                     $("#chngp").hide();
                     $("mset").hide();
                     $("#mSeting").css("color","#D85D72");
+                    $("#chPsBtn").attr("disabled","disabled");
                	$("#tgl").click(function(){
                		$("#sidebar-wrapper2").attr("id","sidebar-wrapper");
                	});
@@ -85,3 +86,20 @@ $("#email").blur(function(){
           }
      });
 });
+
+$("#cPss").keyup(function(){
+     var pss = $("#pss").val();
+     var cPss = $("#cPss").val();
+     if(cPss==pss){
+          $("#vldMsg").html("Password Matched <i class='fa fa-check-circle'></i>");
+          $("#vldMsg").removeClass("text-danger");
+          $("#vldMsg").addClass("text-success");
+          $("#chPsBtn").removeAttr("disabled","disabled");
+     }else{
+         $("#vldMsg").html("Password does not Matched <i class='fa fa-close'></i>");
+          $("#vldMsg").removeClass("text-success");
+          $("#vldMsg").addClass("text-danger");
+          $("#chPsBtn").attr("disabled","disabled"); 
+     }
+});
+
