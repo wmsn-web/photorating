@@ -19,7 +19,7 @@ echo meta($meta);
     <meta name="description" content="">
     <meta name="author" content="">
     ---->
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    
     <?php include("inc/layouts.php"); ?>
 <title>Home</title>
 </head>
@@ -63,7 +63,13 @@ echo meta($meta);
 	            			   <!--img class="img-responsive" src="assets/images/11.png" alt="profile"--->
 	            			   </div>
 	            			<div id="proDtls" <?= $clss2; ?>>
-	            				<h2><?= $profDtls->name; ?></h2>
+	            				<?php if($this->session->userdata('userEmail')){ ?>
+	            					<h2><a class="link color-pri" href="userProfile"><?= $profDtls->name; ?></a></h2>
+	            				
+	            			    <?php }else{ ?>
+	            			    	<h2><?= $profDtls->name; ?></h2>
+                                     
+	            				<?php } ?>
 	            				<div class="abtMe">
 	            				   <h3>About Me</h3>
 	            				   <p>"<?= $profDtls->about; ?>"</p>
@@ -73,6 +79,9 @@ echo meta($meta);
                                    <li><?php echo img("assets/images/icons/zender.png"); ?> <?= $profDtls->gender; ?></li>
                                    <li><?php echo img("assets/images/icons/star2.png"); ?> 9.8</li>
 	            			    </ul>
+	            			    <?php  if($getRevs==1){ ?>
+	            			    	   You have Already Rate this Photo
+	            			  <?php  }else{  ?>
 	            			    <div class="myRate">
 		            			    <h4>My Rating:</h4>
 		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"one", "value"=>"1")); ?>
@@ -97,9 +106,19 @@ echo meta($meta);
 		            			    <label class="lblStar" for="nine">9</label>
 		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"ten", "value"=>"10")); ?>
 		            			    <label class="lblStar" for="ten">10</label>
-		            			    
+		            			    <?php if($this->session->userdata('userEmail')){ ?>
+		            			    <input type="hidden" id="from"  name="" value="<?= $imgPro->email ?>">
+
+		            			    <input type="hidden" id="user"  name="" value="<?= $profDtls->email; ?>">
+		            			    <input type="hidden" id="imgid"  name="" value="<?= $_GET['uid']; ?>">
+		            			    <span id="mssg" class="text-danger"></span>
 		            			    <button class="trBtn">Rate Now</button>
+		            			<?php }else{
+
+		            				echo "<a href='signin'>Login to rate this Photo</a>";
+		            			} ?>
                                 </div>
+                            <?php } ?>
 	            			</div>
 	            		</div>
             	    </div>
@@ -120,6 +139,8 @@ echo meta($meta);
 	 <section id="photos">
 
         <?php
+       
+         
              foreach ($galDtls as $galDtl) {
                  $images = $galDtl->image;
                  if($images==""){
@@ -133,7 +154,7 @@ echo meta($meta);
 
             
 
-	 	<div class="cont">
+	 	<div  class="cont">
 	 		<?php echo img(array("class"=>"imgg", "src"=>"uploads/gallery/$image",  "alt"=>"gallery")); ?>
 		 	<br>
 	        <div class="middle">
@@ -164,13 +185,7 @@ echo meta($meta);
 
 	    
 	 </section>
-	 <ul class="pagination">
-  <li><a href="#">1</a></li>
-  <li class="active"><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-</ul>
+	 
 </div>
 <section class="bottom-footer">
 	 	<div class="footer">
@@ -181,7 +196,7 @@ echo meta($meta);
 	 </section>
 <?php include("inc/modal.php"); ?>
 <?php include("inc/js.php"); ?>
-<script type="text/javascript" src="assets/js/wow.min.js"></script>
+
         
 </body>
 </html>

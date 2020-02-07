@@ -32,5 +32,21 @@ class MyPhotomodel extends CI_model
 		}
 
 	}
+
+	public function deleteImage($id){
+		$sql3 = $this->db->query("SELECT * FROM gallery WHERE id='$id'")->row();
+       if(
+		$sql = $this->db->query("DELETE FROM gallery WHERE id='$id'") &&
+		$sqll = $this->db->query("DELETE FROM reviews WHERE imgid='$id'")
+	     ){
+       	$imgname = $sql3->image;
+       	$dir = "uploads/gallery/".$imgname;
+       	unlink($dir);
+       	return TRUE;
+       }else{
+       	return FALSE;
+       }
+
+	}
 }
 ?>

@@ -110,3 +110,31 @@ $("#uplLbl").change(function(){
      $("#uplBtn").css("display","block")
 });
 
+$(".lblStar").click(function(){
+
+});
+$(".trBtn").click(function(){
+     var dd= $("input[name='rate_star']:checked").val();
+     var user= $("#user").val();
+     var fromUser= $("#from").val();
+     var imgid= $("#imgid").val();
+     if(dd==undefined){$("#mssg").html("Please Click on Rate number")}else{
+    
+    $.post("home/rateStar",
+          {
+               rate :        dd,
+               main_user:    user,
+               from_user:      fromUser,
+               imgid :       imgid
+
+          },
+    function(response,status){
+               if(response=="1"){
+                    location.href="home";
+               }
+          }
+
+     )
+}
+});
+

@@ -21,6 +21,78 @@ echo meta($meta);
     <meta name="author" content="">
     ---->
     <?php include("inc/layouts.php"); ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+ // Delete 
+
+ $('.delt').click(function(){
+   var el = this;
+   var id = this.id;
+   var splitid = id.split("_");
+
+   // Delete id
+   var deleteid = splitid[1];
+
+   //niceAlert
+   
+
+     
+
+   swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will lose your Image and reviews!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+
+  	$.ajax({
+     url: 'myphoto/remove',
+     type: 'POST',
+     data: { id:deleteid },
+     success: function(response){
+
+
+
+       if(response == 1){
+       	swal("Your Photo has been deleted!", {
+      icon: "success",
+    });
+       	
+	 // Remove row from HTML Table
+	 //$("button").closest('img').css('background','tomato');
+	 //$("button").closest('img').fadeOut(800,function(){
+	    //$("img").remove();
+	 //});
+	 var imageid= "emg_"+deleteid;
+       	$("#"+imageid).remove();
+      }else{
+	 alert(response);
+      }
+
+    }
+   });
+  	
+    
+  } else {
+    swal("Your Photo  is safe!",{
+    	icon: "success",
+    });
+  }
+});
+ 
+   // AJAX Request
+ 
+
+ });
+
+});
+</script>
 <title>My Profile</title>
 </head>
 <body>
@@ -68,13 +140,30 @@ echo meta($meta);
 					</div>
 					<div class="myLocation">
 						
-						<section id="myPhotos">
-							<?php foreach ($allImg as $allImgs) { ?>
+						<section id="photos">
+							<?php
+                                 
+							 foreach ($allImg as $allImgs) { ?>
 								
-							
+							<!---
 	                        <div class="cont">
 			 					<img class="imgg" src="assets/images/<?= $allImgs->image ?>"  alt="gallery"><br>
+			 					<div class="middlex">
+						        		hello
+	        					</div>   
 		                    </div>
+		                    --->
+		                    
+		                    <div class="cont">
+	 		<?php echo img(array("class"=>"imgg", "id"=>"emg_$allImgs->id", "src"=>"assets/images/$allImgs->image",  "alt"=>"gallery")); ?>
+		 	<br>
+	        <div class="middlex">
+	        	<div class="text">
+	        		<button id="del_<?= $allImgs->id ?>" class="btn btn-danger delt">Delete</button> 		
+	        	</div>
+	        </div>        
+	    </div>
+	
 		                    <?php } ?>
                         </section>
 					</div>

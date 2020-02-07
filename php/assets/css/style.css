@@ -126,7 +126,8 @@ body {
   margin-right: 0px;
 }
 
-
+a.link{text-decoration: none}
+.color-pri{color:#DC3C3C}
 /* Sidebar Styles */
 
 .sidebar-nav {
@@ -305,6 +306,7 @@ My Photos
 .dispHide{display: none;}
 .img-Upl{width: 85px; height: 85px; cursor: pointer;}
 
+
 #myPhotos {
   width:100%;
   
@@ -316,6 +318,23 @@ My Photos
    -moz-column-gap:      0px;
    column-count:         3;
    column-gap:           10px;
+}
+
+.cont .middlex {
+  width: 60%;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  color: #000;
+}
+
+.cont:hover  .middlex {
+  opacity: 1;
 }
 #myPhotos .cont img {margin-bottom: 10px}
 

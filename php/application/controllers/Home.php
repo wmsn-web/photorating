@@ -19,14 +19,20 @@ class Home extends CI_controller
      	$authMail = $this->session->userdata('userEmail');
      	$imgPro = $this->Home_model->getAuth($authMail);		
 		$galDtls = $this->Home_model->HomeGallery();
+		$getRevs = $this->Home_model->getRevsGal($authMail,$uid);
+
+
 		$profDtls = $this->Home_model->getProfile($user_email);
 		$getGal = $this->Home_model->getgal($uid);
-		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"imgPro"=>$imgPro,"getGal"=>$getGal]);
+
+		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"imgPro"=>$imgPro,"getGal"=>$getGal,"getRevs"=>$getRevs]);
+
+		
 	}else{
 		$galDtls = $this->Home_model->HomeGallery();
 		$profDtls = $this->Home_model->getProfile($user_email);
 		$getGal = $this->Home_model->getgal($uid);
-		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"getGal"=>$getGal]);
+		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"getGal"=>$getGal,"imgPro"=>""]);
 	}
 	
 	}
@@ -58,6 +64,16 @@ class Home extends CI_controller
         $this->load->library('session');
 		$this->session->unset_userdata('userEmail');
 		return redirect('home');
+	}
+
+	public function rateStar(){
+		$rate = $this->input->post('rate');
+		$main_user = $this->input->post('main_user');
+		$from_user = $this->input->post('from_user');
+		$imgid = $this->input->post('imgid');
+
+		$this->load->model("Home_model");
+		echo $doRate = $this->Home_model->makeRate($rate,$main_user,$from_user,$imgid);
 	}
 }
 

@@ -49,7 +49,7 @@ public function uploadGal()
               			 $this->image_resize("uploads/gallery/".$imgs,180);
 			             if($updtGal=="no"){
 			                $dir = "uploads/gallery/".$imgs;
-			                unlink($dir);
+			                //unlink($dir);
 			                $this->session->set_flashdata("feedback"," Only 5 Picture can upload. Delete atleast one Image to upload again");
 			                return redirect("myphoto");
 
@@ -73,6 +73,13 @@ function image_resize($imgpath,$height)
 	$this->load->library('image_lib', $config);
 
 	$this->image_lib->resize();
+}
+
+public function remove(){
+	$id = $this->input->post('id');
+	$this->load->model("MyPhotomodel");
+    echo $del = $this->MyPhotomodel->deleteImage($id);
+	
 }
 
 }
