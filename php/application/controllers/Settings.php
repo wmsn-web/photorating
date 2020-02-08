@@ -29,6 +29,9 @@ class Settings extends CI_controller
 		$age = $this->input->post('age');
 		$gender = $this->input->post('gender');
 		$about = $this->input->post('about');
+		$hide_img = $this->input->post('hide_img');
+
+		if($hide_img==""){
 
                 $config['upload_path']          = 'uploads/';
                 $config['allowed_types']        = 'gif|jpg|png';
@@ -52,6 +55,9 @@ class Settings extends CI_controller
 
                         
                 }
+                }else{
+             	$imgs = $hide_img;
+             }
 
 		$this->load->model("settingModel");
 		$addAll = $this->settingModel->updatePro($name, $email, $country, $age, $gender, $about, $imgs);

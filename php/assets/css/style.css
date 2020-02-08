@@ -300,6 +300,21 @@ my Profile
   opacity: 1;
 }
 
+.edtBtndd button{background: red no-repeat padding-box;
+position: relative;
+height: 35px;
+border: none;
+color: #fff;
+padding: 0px 55px;
+opacity: 0.87;}
+.edtBtndd button:before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    border-top: 35px solid white;
+    border-left: 49px solid red;
+    width: 0;
+}
 /*/////////////
 My Photos
 ///////////////*/

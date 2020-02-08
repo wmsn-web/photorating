@@ -64,7 +64,7 @@ echo meta($meta);
 	            			   </div>
 	            			<div id="proDtls" <?= $clss2; ?>>
 	            				<?php if($this->session->userdata('userEmail')){ ?>
-	            					<h2><a class="link color-pri" href="userProfile"><?= $profDtls->name; ?></a></h2>
+	            					<h2><a class="link color-pri" href="userProfile?user=<?= $profDtls->email; ?>"><?= $profDtls->name; ?></a></h2>
 	            				
 	            			    <?php }else{ ?>
 	            			    	<h2><?= $profDtls->name; ?></h2>
@@ -72,16 +72,17 @@ echo meta($meta);
 	            				<?php } ?>
 	            				<div class="abtMe">
 	            				   <h3>About Me</h3>
-	            				   <p>"<?= $profDtls->about; ?>"</p>
+	            				   <p>"<?= substr($profDtls->about,0,100) ?>...."</p>
 	            			    </div>
 	            			    <ul class="myIcon">
                                    <li><?php echo img('assets/images/icons/globe.png'); ?> <?= $profDtls->country; ?></li>
                                    <li><?php echo img("assets/images/icons/zender.png"); ?> <?= $profDtls->gender; ?></li>
                                    <li><?php echo img("assets/images/icons/star2.png"); ?> 9.8</li>
 	            			    </ul>
+	            			    <?php if($this->session->userdata('userEmail')){ ?>
 	            			    <?php  if($getRevs==1){ ?>
 	            			    	   You have Already Rate this Photo
-	            			  <?php  }else{  ?>
+	            			  <?php }  else{  ?>
 	            			    <div class="myRate">
 		            			    <h4>My Rating:</h4>
 		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"one", "value"=>"1")); ?>
@@ -113,12 +114,12 @@ echo meta($meta);
 		            			    <input type="hidden" id="imgid"  name="" value="<?= $_GET['uid']; ?>">
 		            			    <span id="mssg" class="text-danger"></span>
 		            			    <button class="trBtn">Rate Now</button>
-		            			<?php }else{
+		            			<?php  }else{
 
 		            				echo "<a href='signin'>Login to rate this Photo</a>";
 		            			} ?>
                                 </div>
-                            <?php } ?>
+                            <?php } } ?>
 	            			</div>
 	            		</div>
             	    </div>

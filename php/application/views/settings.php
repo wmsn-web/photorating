@@ -361,18 +361,22 @@ echo meta($meta);
                             <tr>
                                 <th>Gender:</th>
                                 <td>
-                                    <input type="radio" <?= $chkMl; ?> value="<?= $getDtlsd->gender; ?>"  name="gender" required="required"> Male
-                                    <input type="radio" <?= $chkFml; ?> value="<?= $getDtlsd->gender; ?>"  name="gender" required="required"> Female
+                                    <input type="radio" <?= $chkMl; ?> value="Male"  name="gender" > Male
+                                    <input type="radio" <?= $chkFml; ?> value="Female"  name="gender" > Female
                                 </td>
                             </tr>
                             <tr>
                                 <th>About Me:</th>
-                                <td><textarea rows="3" class="form-control" name="about"><?= $getDtlsd->name; ?></textarea></td>
+                                <td><textarea rows="3" class="form-control" name="about"><?= $getDtlsd->about; ?></textarea>
+                                  <input type="hidden" name="hide_img" value="<?= $getDtlsd->image; ?>" >
+                                </td>
+
                             </tr>
                         <?php if($getDtlsd->image==""){ ?>
                             <tr>
                                 <th>Profile Picture:</th>
                                 <td>
+
                                     <input type="file" class="form-control-file" name="pro_img" required="required" />
                                 </td>
                             </tr>

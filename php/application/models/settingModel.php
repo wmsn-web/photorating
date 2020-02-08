@@ -1,7 +1,5 @@
 <?php
-/**
- * 
- */
+
 class SettingModel extends CI_model
 {
 	
