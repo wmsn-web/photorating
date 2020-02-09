@@ -21,7 +21,7 @@ echo meta($meta);
     <meta name="author" content="">
     ---->
     <?php include("inc/layouts.php"); ?>
-<title>My Profile</title>
+<title>User Profile</title>
 </head>
 <body>
 	<?php include("inc/main_menu.php"); ?>
@@ -47,8 +47,8 @@ echo meta($meta);
 					<div class="mobView">
                         <div class="set_menu_mob">
                             <ul>
-                                <li class="activeUl" onclick="location.href='myphoto'">My Photos</li>
-                                <li id="myreviews">My reviews</li>
+                                <li class="activeUl" onclick="location.href='myphoto'">Profile</li>
+                                <li id="photos">Photos</li>
                             </ul>
                         </div>
                     </div>
@@ -66,13 +66,18 @@ echo meta($meta);
 					</div>
 				</div>
 				<?php
-                      if($checkRqst==1){
-                      	$txt = "Request Sent";
-                      	$disb = "disabled='disabled'";
-                      }else{
-                      	$txt = "Send Request";
-                      	$disb = "disabled=''";
-                      }
+				     $btnTxt = "";
+				     $disp= "";
+                     $status = $checkRqst->status;
+                     $rqst = $checkRqst->rqst;
+                     if($status==1){
+                     	$btnTxt = "Message";
+                     	$disp= "";
+                     }
+                     if($status==0){
+                     	$btnTxt = "Request Sent";
+                     	$disp= "disabled='disabled'";
+                     }
 
                      
 				?>
@@ -87,7 +92,7 @@ echo meta($meta);
 					    		<input type="hidden" name="userEmail" value="<?= $getUser->email; ?>">
 					    		<input type="hidden" name="authName" value="<?= $imgPro->name; ?>">
 					    		<input type="hidden" name="authEmail" value="<?= $imgPro->email; ?>">
-					    		<button <?= $disb; ?>><?= $txt; ?></button>
+					    		<button ><?= $btnTxt; ?></button>
 					        </form>
 					    </div>
 				    </div>

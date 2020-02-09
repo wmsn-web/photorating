@@ -33,7 +33,7 @@ echo meta($meta);
             <!-- Sidebar -->
             <?php if(isset($_GET['uid'])){ ?>
             	<?php $proImg = $profDtls->image;
-            	list($width, $height, $type, $attr) = getimagesize("assets/images/$proImg"); 
+            	list($width, $height, $type, $attr) = getimagesize("uploads/gallery/$proImg"); 
             	 $wdth =$width."<br>";
             	 $hght =$height;
             	if($wdth>$hght){
@@ -60,7 +60,7 @@ echo meta($meta);
             		<div class="container-fluid">
 		            	<div class="row">
 	            			<div id="profImg" <?= $clss; ?>>
-	            				<?php echo img(array("src"=>"assets/images/$proImg","class"=>"img-responsive","alt"=>"profile")); ?>
+	            				<?php echo img(array("src"=>"uploads/gallery/$proImg","class"=>"img-responsive","alt"=>"profile")); ?>
 	            			   <!--img class="img-responsive" src="assets/images/11.png" alt="profile"--->
 	            			   </div>
 	            			<div id="proDtls" <?= $clss2; ?>>
@@ -130,7 +130,7 @@ echo meta($meta);
             
 
 	 	<div class="cont">
-	 		<?php echo img(array("class"=>"imgg", "src"=>"assets/images/$image",  "alt"=>"gallery")); ?>
+	 		<?php echo img(array("class"=>"imgg", "src"=>"uploads/gallery/$image",  "alt"=>"gallery")); ?>
 		 	<br>
 	        <div class="middle">
 	        	<div class="text">

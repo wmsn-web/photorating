@@ -79,7 +79,10 @@ echo meta($meta);
                                    <li><?php echo img("assets/images/icons/zender.png"); ?> <?= $profDtls->gender; ?></li>
                                    <li><?php echo img("assets/images/icons/star2.png"); ?> 9.8</li>
 	            			    </ul>
-	            			    <?php if($this->session->userdata('userEmail')){ ?>
+	            			    <?php if($this->session->userdata('userEmail')){
+                                      //$authUser = $imgPro->email;
+
+	            			     ?>
 	            			    <?php  if($getRevs==1){ ?>
 	            			    	   You have Already Rate this Photo
 	            			  <?php }  else{  ?>
@@ -119,7 +122,7 @@ echo meta($meta);
 		            				echo "<a href='signin'>Login to rate this Photo</a>";
 		            			} ?>
                                 </div>
-                            <?php } } ?>
+                            <?php } }else{ echo "<a href='signin'>Login to rate this Photo</a>"; } ?>
 	            			</div>
 	            		</div>
             	    </div>

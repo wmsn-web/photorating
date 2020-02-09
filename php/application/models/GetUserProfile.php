@@ -14,7 +14,7 @@ class GetUserProfile extends CI_model
 
 	function checkRqst($user_mail,$authMail)
 	{
-		$sqll = $this->db->query("SELECT * FROM friendsall WHERE authemail='$authMail' AND useremail='$user_mail'")->num_rows();
+		$sqll = $this->db->query("SELECT * FROM friendsall WHERE authemail='$authMail' AND useremail='$user_mail'")->row();
 		return $sqll;
 	}
 

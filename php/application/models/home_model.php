@@ -10,10 +10,10 @@ class Home_model extends CI_model
 		 
 	}
 	
-	public function homeGallery()
+	public function homeGallery($authMail)
 	   {
 		
-			$query = $this->db->query("SELECT * FROM gallery   ORDER BY id DESC");
+			$query = $this->db->query("SELECT * FROM gallery WHERE user_email!='$authMail'  ORDER BY id DESC");
 			return $query->result();
 		}
 		

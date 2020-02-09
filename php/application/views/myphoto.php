@@ -93,7 +93,7 @@ echo meta($meta);
 
 });
 </script>
-<title>My Profile</title>
+<title>My Photos</title>
 </head>
 <body>
 	<?php include("inc/main_menu.php"); ?>
@@ -114,8 +114,8 @@ echo meta($meta);
 							<ul>
 								<li><a<?=($this->uri->segment(1) == 'myprofile' ? ' class="actv"' : '');?> href="myprofile">My Profile</a></li>
 								<li><a<?=($this->uri->segment(1) == 'myphoto' ? ' class="actv"' : '');?> href="myphoto">My Photos</a></li>
-								<li><a<?=($this->uri->segment(1) == 'my-half-friends' ? ' class="actv"' : '');?> href="my-half-friends">My half Friends</a></li>
-								<li><a<?=($this->uri->segment(1) == 'my-friends' ? ' class="actv"' : '');?> href="my-friends">My Fill Friends</a></li>
+								<li><a<?=($this->uri->segment(1) == 'myHalfFriends' ? ' class="actv"' : '');?> href="myHalfFriends">My half Friends</a></li>
+								<li><a<?=($this->uri->segment(1) == 'myFriends' ? ' class="actv"' : '');?> href="myFriends">My Fill Friends</a></li>
 								<li><a<?=($this->uri->segment(1) == 'myreviews' ? ' class="actv"' : '');?> href="myreviews">My reviews</a></li>
 							</ul>
 						</div>
@@ -155,7 +155,7 @@ echo meta($meta);
 		                    --->
 		                    
 		                    <div class="cont">
-	 		<?php echo img(array("class"=>"imgg", "id"=>"emg_$allImgs->id", "src"=>"assets/images/$allImgs->image",  "alt"=>"gallery")); ?>
+	 		<?php echo img(array("class"=>"imgg", "id"=>"emg_$allImgs->id", "src"=>"uploads/gallery/$allImgs->image",  "alt"=>"gallery")); ?>
 		 	<br>
 	        <div class="middlex">
 	        	<div class="text">

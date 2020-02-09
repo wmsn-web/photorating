@@ -271,11 +271,11 @@ LOGIN PAGE
 /*///////////
 my Profile
 /////////////*/
-.set_menu_pro ul li {list-style-type: none; padding: 12px; font-size: 22px; font-weight: 600; color: #707070;
-	cursor: pointer;
+.set_menu_pro ul li {list-style-type: none; padding: 30px 12px; font-size: 20px; font-weight: 500; color: #707070;
+  cursor: pointer;
   }
-  .set_menu_pro ul li a{text-decoration: none; padding: 12px; font-size: 22px; font-weight: 600; color: #707070;
-	cursor: pointer;
+  .set_menu_pro ul li a{text-decoration: none; padding: 30px 12px; font-size: 20px; font-weight: 500; color: #707070;
+  cursor: pointer;
   }
   .set_menu_pro .actv{color: #E65050}
 .aboutMe{padding: 35px 3px; color: #B4B3B3; font-size: 14px }
@@ -293,6 +293,29 @@ my Profile
 /*///////////
 my Profile
 /////////////*/
+/*/////////////
+friendList
+///////////////*/
+.tbl-list{width:100%; height: 600px; overflow: scroll; /*overflow-y: hidden; /* Hide vertical scrollbar 
+  overflow-x: hidden;*/}
+  .tbl-list::-webkit-scrollbar {
+    display: none;}
+
+.friendList{width:100%;}
+.friendList td{padding: 20px 4px}
+.friendList td img.list-pro-img{width:90px; height: 90px; border-radius: 50%; border:solid 1px #f0f0f0;}
+ .friendList td span.nameTxt{font-weight: bold; font-size: 18px; cursor: pointer;}
+ .friendList td span.dtlsTxt{color:#7F7D7D; font-size: 16px }
+ .friendList td span.bottomTxt{color:#938E8E; font-size: 12px }
+ .friendList td button.conBtn{border: solid 1px #D62525; padding: 2px 38px; text-align: center; color: #fff;
+  background:#D62525; font-size: 14px; border-radius: 8px; cursor: pointer; outline: none; }
+  .friendList td button.conBtn:hover{background: #E34848}
+  .friendList td button.conBtn:disabled{background: #F67878; cursor: not-allowed;}
+  .friendList .mobTxt {display: none;}
+
+/*/////////////
+friendList
+///////////////*/
 #photos .imgg:hover {
   opacity: 0.3;
 }

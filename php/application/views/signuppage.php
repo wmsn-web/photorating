@@ -130,7 +130,7 @@ echo meta($meta);
             
 
 	 	<div class="cont">
-	 		<?php echo img(array("class"=>"imgg", "src"=>"assets/images/$image",  "alt"=>"gallery")); ?>
+	 		<?php echo img(array("class"=>"imgg", "src"=>"uploads/gallery/$image",  "alt"=>"gallery")); ?>
 		 	<br>
 	        <div class="middle">
 	        	<div class="text">

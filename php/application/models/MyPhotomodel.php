@@ -1,7 +1,5 @@
 <?php
-/**
- * 
- */
+
 class MyPhotomodel extends CI_model
 {
 	

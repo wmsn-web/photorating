@@ -80,5 +80,7 @@
   .set_menu_mob ul li.activeUl {border: solid 1px #E65050; background: #E65050; color: #fff}
   /*.set_menu_mob ul li:first-child{border: solid 1px #E65050; background: #E65050; color: #fff}*/
   .set_menu_mob ul li:last-child{margin-left: 15px}
+  .friendList .mdlTd{display: none;}
+  .friendList .mobTxt {display: block;}
   
 }

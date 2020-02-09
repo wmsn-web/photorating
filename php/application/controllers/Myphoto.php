@@ -43,13 +43,14 @@ public function uploadGal()
                 {
                          
                          $upload_data = $this->upload->data();
-			             $imgs = $upload_data['file_name'];
+			            echo  $imgs = $upload_data['file_name'];
+			             
 			             $this->load->model("MyPhotomodel");
               			 $updtGal = $this->MyPhotomodel->uploadGallery($email,$imgs);
               			 $this->image_resize("uploads/gallery/".$imgs,180);
 			             if($updtGal=="no"){
 			                $dir = "uploads/gallery/".$imgs;
-			                //unlink($dir);
+			                unlink($dir);
 			                $this->session->set_flashdata("feedback"," Only 5 Picture can upload. Delete atleast one Image to upload again");
 			                return redirect("myphoto");
 
@@ -58,6 +59,7 @@ public function uploadGal()
 			             	return redirect("myphoto");
 
 			             }
+			             
 
                 }
                
