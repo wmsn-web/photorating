@@ -52,9 +52,9 @@
 	                   <li><a<?=($this->uri->segment(1) == 'home' || $this->uri->segment(1) == '' ? ' class="actv"' : '');?> href="<?= base_url(); ?>">Home</a></li>
 	                   <li><a <?=($this->uri->segment(1) == 'about' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>about">About Us</a></li>
 	                   <li><a <?=($this->uri->segment(1) == 'settings' ? ' class="actv"' : '');?> href="<?= base_url(); ?>settings">Settings</a></li>
-	                   <li><a <?=($this->uri->segment(1) == 'myprofile' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>myprofile">My Profile</a></li>
-	                   <li><a <?=($this->uri->segment(1) == 'my-half-friends' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>my-half-friends">My Half friend</a></li>
-	                   <li><a <?=($this->uri->segment(1) == 'my-friends' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>my-friends">My Full Friend</a></li>
+	                   <li><a <?=($this->uri->segment(1) == 'myprofile' || $this->uri->segment(1) == 'myreviews' || $this->uri->segment(1) == 'myphoto' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>myprofile">My Profile</a></li>
+	                   <li><a <?=($this->uri->segment(1) == 'myHalfFriends' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>myHalfFriends">My Half friend</a></li>
+	                   <li><a <?=($this->uri->segment(1) == 'myFriends' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>myFriends">My Full Friend</a></li>
 	                   <li><a href="<?= base_url(); ?>home/logout">Logout</a></li>
 	            	</ul>
                </div>

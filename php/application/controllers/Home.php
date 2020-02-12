@@ -20,7 +20,7 @@ class Home extends CI_controller
      	$imgPro = $this->Home_model->getAuth($authMail);		
 		$galDtls = $this->Home_model->HomeGallery($authMail);
 		$getRevs = $this->Home_model->getRevsGal($authMail,$uid);
-
+        
 
 		$profDtls = $this->Home_model->getProfile($user_email);
 		$getGal = $this->Home_model->getgal($uid);
@@ -31,6 +31,7 @@ class Home extends CI_controller
 	}else{
 		$authMail="";
 		$galDtls = $this->Home_model->HomeGallery($authMail);
+		
 		$profDtls = $this->Home_model->getProfile($user_email);
 		$getGal = $this->Home_model->getgal($uid);
 		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"getGal"=>$getGal,"imgPro"=>""]);

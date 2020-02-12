@@ -2,6 +2,15 @@
 
 class SettingModel extends CI_model
 {
+	function getCountry()
+	{
+		$cntrs = $this->db->get("country")->result();
+		foreach ($cntrs as $cntr) {
+			
+			$data[$cntr->id]= array('country_name'=>$cntr->country_name, 'code'=>$cntr->code);
+		}
+		return $data;
+	}
 	
 	public function getPro($logEmail)
 	{

@@ -16,7 +16,7 @@ class MyHalfFriends extends CI_controller
      	    
 	   		$this->load->view("MyHalfFriends",["imgPro"=>$imgPro]);	
 		}else{
-            $this->load->view("signin");
+            redirect("signin");
 		}
 	}
 

@@ -16,8 +16,11 @@ class Settings extends CI_controller
             $this->load->model("Home_model");
 			$authMail = $this->session->userdata('userEmail');
      	    $imgPro = $this->Home_model->getAuth($authMail);
+     	    $cntr = $this->settingModel->getCountry();
 
-		$this->load->view("settings",['getDtlsd'=>$getDtls,"imgPro"=>$imgPro]);
+     	    //print_r($cntr);
+
+		$this->load->view("settings",['getDtlsd'=>$getDtls,"imgPro"=>$imgPro,"cntr"=>$cntr]);
 	}
 	}
 

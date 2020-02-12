@@ -3,6 +3,7 @@
 	#tgl{width: 35px; height: 15px}
 	.fltr, .menus{padding: none}
 	.menus{display: none;}
+  #mobd{display: block;}
   #wrapper {
     padding-left: 0;
   }
@@ -43,8 +44,10 @@
   #photos {
   -moz-column-count:    8;
   -webkit-column-count: 8;
-  column-count:         4;
+  column-count:         6;
   }
+
+  .bottom_rating{display: none}
 }
 @media (max-width: 1000px) {
   .pgLogin{margin-left: 15px}
@@ -82,5 +85,37 @@
   .set_menu_mob ul li:last-child{margin-left: 15px}
   .friendList .mdlTd{display: none;}
   .friendList .mobTxt {display: block;}
+
+  .bottom_rating{position: fixed;
+    top: 0;
+    padding: 20px;
+    background: #fff;
+    width: 100%;
+    height: 980px;
+    overflow: scroll;
+    display: block;
+  }
+.cls-mob{position: absolute; top: 12px; right: 12px}
+.rtBox{position: absolute; top:10%; left: 15px}
+.rtBox .nameTxt{font-size: 22px; font-weight: bold; color: #DC452B; padding-bottom: 8px; padding-left: 35px}
+}
+.rtBox .cntrTxt{font-size: 18px; font-weight: bold; color: #DC452B; padding-bottom: 20px; padding-left: 20px}
+}
+.rtBox .immg{padding-left: 20px; padding-right: 20px; margin: auto;}
+.myIcon{width: 100%; padding-top: 25px}
+.myIcon li img{width: 40px !important}
+.myIcon li i{color: #DC452B !important;}
+.myIcon li{list-style-type: none; display: inline-block;}
+.myIcon li:first-child{padding-right: 20px}
+.myIcon li:last-child{padding-left: 20px}
+.rtBox .trBtn{padding: 4px; background-image: linear-gradient(#DC452B, #F49C8C);
+ color: #fff; font-size: 16px; border: 1px solid #DC452B; border-radius: 60px !important;
+ margin-top: 15px; width: 175px; cursor: pointer; outline: none;
+ }
+
+ .img-chng{width:180; height: 200;}
+
+}
+  
   
 }

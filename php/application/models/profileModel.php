@@ -16,12 +16,13 @@ class ProfileModel extends CI_model
         
         $sql2 = $this->db->query("SELECT * FROM reviews WHERE main_user='$authMail'");
 		  $rows = $sql2->num_rows();
+		  $tot = $result->rate;
 		  if($rows==0){
 		  	$avrg = 0;
 		  }else{
 		  	 $avrg = @$tot/$rows;
 		  }
-		  $tot = $result->rate;
+		  
           
          return number_format($avrg,1);
 

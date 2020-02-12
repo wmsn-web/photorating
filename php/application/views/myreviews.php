@@ -21,17 +21,22 @@ echo meta($meta);
     <meta name="author" content="">
     ---->
     <?php include("inc/layouts.php"); ?>
-<title>My Profile</title>
+    
+<title>My Reviews</title>
 </head>
 <body>
 	<?php include("inc/main_menu.php"); ?>
-	<?php $country = $imgPro->country;
-       $cd = explode("-",$country);
-        $cntry_codes = @strtolower($cd[1]);
-       $flag = "http://www.geonames.org/flags/x/".$cntry_codes.".gif";
-	 ?>
     <div class="container-set">
 			<div class="row">
+				<div class="col-md-12">
+					<?php if($feedback =$this->session->flashdata("feedback")){ ?>
+                       
+                       <div class="alert alert-success">
+                       	<?= $feedback; ?>
+                       </div>
+                      
+					<?php } ?>	
+				</div>
 				<div class="col-md-4">
 					<div class="deskView">
 						<div class="set_menu_pro">
@@ -45,43 +50,45 @@ echo meta($meta);
 						</div>
 					</div>
 					<div class="mobView">
-                        <div class="set_menu_mob">
-                            <ul>
-                                <li class="activeUl" onclick="location.href='myphoto'">My Photos</li>
-                                <li id="myreviews">My reviews</li>
-                            </ul>
-                        </div>
-                    </div>
+						<div class="set_menu_mob">
+							
+						</div>
+				    </div>
 			    </div>
-				<div class="col-md-4">
-					<h5><?= $imgPro->name; ?></h5>
+				<div class="col-md-8">
+					<h5>Photo Reviews</h5>
 					<div class="aboutMe">
-						<?= $imgPro->about; ?>
+						
 					</div>
 					<div class="myLocation">
-						<img src="<?= $flag; ?>" width="25">
-						<?= $imgPro->country; ?>
-					</div>
-					
-					<div class="myRev">
-						<ul>
-							<li><h3><?= $pht ?></h3> Photos</li>
-							<li><h3><?= $totRev ?></h3> Reviews</li>
-					    </ul>
+						 <?php foreach ($revData as $revDatas) { ?>
+                             	<?php $status = $revDatas['status'];
+						if($status=="0"){ ?>
+							<div class="alert alert-danger">
+								You do not have any Reviews!
+							</div>
+					    <?php }else{ ?>
+						
+						<section id="photos">
+                             
+                             <?php foreach ($revData as $revDatas) { ?>
+                             	
+
+							<div class="contx">
+								<img  class="imgg" src="uploads/gallery/<?= $revDatas['image']; ?>">
+								<div class="midTxt">
+									<img src="assets/images/icons/star.png">
+									<?= $revDatas['rates']; ?>
+								</div>
+							</div>
+							<?php } } } ?>
+
+                        </section>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div align="center">
-						<div class="pro_pic">
-							<img class="pro_img" src="uploads/<?= $profilePic; ?>" /><br>
-					    </div>
-					    <div class="edtBtn">
-					    	<button onclick="location.href='settings'">Edit Profile</button>
-					    </div>
-				    </div>
-				</div>
+				
 			</div>
-	</div>          
+	</div>
     <section>
         <?= br(6); ?>
     </section>

@@ -28,106 +28,28 @@ echo meta($meta);
 	
 
 
-            <div id="prof-wrapper" class="toggleddd">
-            <!-- Sidebar -->
-            <?php if(isset($_GET['user_email'])){ ?>
+<?php if(isset($_GET['user_email'])){ ?>
             	<?php $proImg = $getGal->image;
             	list($width, $height, $type, $attr) = getimagesize("uploads/gallery/$proImg"); 
             	 $wdth =$width."<br>";
             	 $hght =$height;
             	if($wdth>$hght){
             		
-            		$clss = 'class="col-md-10"';
-            		$clss2 = 'class="col-md-10 prof-dtls"';
+            		$clss = 'class="col-md-6"';
+            		$clss2 = 'class="col-md-6 prof-dtls"';
+            		$width_div = "style='width:980px !important'";
             	}else{
             		$clss = 'class="col-md-6"';
             		$clss2 = 'class="col-md-6 prof-dtls"';
+            		$width_div = "style='width:730px !important'";
             	}
 
                  
             	 ?>
-            <div id="prof-sidebar-wrapper">
-            	<div Onclick="location.href='<?= base_url(); ?>'"  class="cls">
-            		<?php echo img(array("src"=>"assets/images/closebtn.png","class"=>"clsBtn")); ?>
-            		<!---img class="clsBtn" src="assets/images/closebtn.png" alt="close"-->
-            	</div>
-            	<div class="cls">
-            		
-            	</div>
+            <div id="prof-wrapper" class="toggleddd">
+            <!-- Sidebar -->
 
-            	<div class="prof-sideMenu">
-            		<div class="container-fluid">
-		            	<div class="row">
-	            			<div id="profImg" <?= $clss; ?>>
-	            				<?php echo img(array("src"=>"uploads/gallery/$proImg","class"=>"img-responsive","alt"=>"profile")); ?>
-	            			   <!--img class="img-responsive" src="assets/images/11.png" alt="profile"--->
-	            			   </div>
-	            			<div id="proDtls" <?= $clss2; ?>>
-	            				<?php if($this->session->userdata('userEmail')){ ?>
-	            					<h2><a class="link color-pri" href="userProfile?user=<?= $profDtls->email; ?>"><?= $profDtls->name; ?></a></h2>
-	            				
-	            			    <?php }else{ ?>
-	            			    	<h2><?= $profDtls->name; ?></h2>
-                                     
-	            				<?php } ?>
-	            				<div class="abtMe">
-	            				   <h3>About Me</h3>
-	            				   <p>"<?= substr($profDtls->about,0,100) ?>...."</p>
-	            			    </div>
-	            			    <ul class="myIcon">
-                                   <li><?php echo img('assets/images/icons/globe.png'); ?> <?= $profDtls->country; ?></li>
-                                   <li><?php echo img("assets/images/icons/zender.png"); ?> <?= $profDtls->gender; ?></li>
-                                   <li><?php echo img("assets/images/icons/star2.png"); ?> 9.8</li>
-	            			    </ul>
-	            			    <?php if($this->session->userdata('userEmail')){
-                                      //$authUser = $imgPro->email;
-
-	            			     ?>
-	            			    <?php  if($getRevs==1){ ?>
-	            			    	   You have Already Rate this Photo
-	            			  <?php }  else{  ?>
-	            			    <div class="myRate">
-		            			    <h4>My Rating:</h4>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"one", "value"=>"1")); ?>
-		            			    <!--input type="radio" class="rdo" name="rate_star" id="one" value="1"-->
-		            			    <label class="lblStar" for="one">1</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"two", "value"=>"2")); ?>
-		            			    
-		            			    <label class="lblStar" for="two">2</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"three", "value"=>"3")); ?>
-		            			    <label class="lblStar" for="three">3</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"four", "value"=>"4")); ?>
-		            			    <label class="lblStar" for="four">4</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"five", "value"=>"5")); ?>
-		            			    <label class="lblStar" for="five">5</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"six", "value"=>"6")); ?>
-		            			    <label class="lblStar" for="six">6</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"seven", "value"=>"7")); ?>
-		            			    <label class="lblStar" for="seven">7</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"eight", "value"=>"8")); ?>
-		            			    <label class="lblStar" for="eight">8</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"nine", "value"=>"9")); ?>
-		            			    <label class="lblStar" for="nine">9</label>
-		            			    <?php echo form_input(array("type"=>"radio", "class"=>"rdo", "name"=>"rate_star", "id"=>"ten", "value"=>"10")); ?>
-		            			    <label class="lblStar" for="ten">10</label>
-		            			    <?php if($this->session->userdata('userEmail')){ ?>
-		            			    <input type="hidden" id="from"  name="" value="<?= $imgPro->email ?>">
-
-		            			    <input type="hidden" id="user"  name="" value="<?= $profDtls->email; ?>">
-		            			    <input type="hidden" id="imgid"  name="" value="<?= $_GET['uid']; ?>">
-		            			    <span id="mssg" class="text-danger"></span>
-		            			    <button class="trBtn">Rate Now</button>
-		            			<?php  }else{
-
-		            				echo "<a href='signin'>Login to rate this Photo</a>";
-		            			} ?>
-                                </div>
-                            <?php } }else{ echo "<a href='signin'>Login to rate this Photo</a>"; } ?>
-	            			</div>
-	            		</div>
-            	    </div>
-               </div>
-            </div> <!-- /#sidebar-wrapper -->
+            <?php include("inc/profile_tab.php"); ?>
 <?php } ?>
 
 </div>
@@ -137,16 +59,15 @@ echo meta($meta);
 		<div class="filters">
 			<button class="fltrBtn">Female</button>
 			<button class="fltrBtn">Female</button>
-			<button class="fltrBtn">Age</button>
+			
 		</div>
 	</div>
-	 <section id="photos">
+	<div class="container-fluidx">
+	  <section id="photos">
 
         <?php
-       
-         
              foreach ($galDtls as $galDtl) {
-                 $images = $galDtl->image;
+                 $images = $galDtl['image'];
                  if($images==""){
                  	$image = "default.png";
                  }else{
@@ -154,15 +75,26 @@ echo meta($meta);
                  }
 
               ?>
-             	
-
-            
 
 	 	<div  class="cont">
 	 		<?php echo img(array("class"=>"imgg", "src"=>"uploads/gallery/$image",  "alt"=>"gallery")); ?>
 		 	<br>
 	        <div class="middle">
 	        	<div class="text">
+	        		<div class="nameTxt" align="center">
+	        			<span><?= $galDtl["name"]; ?></span>
+	        	    </div>
+	        	    <table class="tlbss">
+	        			<tr>
+	        				<th><img width="25" src="<?=$galDtl["flag"]; ?>"> <?= $galDtl["country"]; ?></th>
+	        				<td><?= $galDtl["genderIcon"]; ?> <?= $galDtl["age"]; ?></td>
+	        			</tr>
+	        		</table>
+	        		<div align="center">
+	        		   <button Onclick="location.href='?uid=<?= $galDtl["id"]; ?>&user_email=<?= $galDtl["user_email"]; ?>'" class="rateBtn">Rate</button>
+	        	    </div>
+
+	        		<?php /*
 	        		<table class="tlb">
 	        			<tr>
 	        				<th><?= $galDtl->name; ?></th>
@@ -175,31 +107,101 @@ echo meta($meta);
 	        				<th><?php echo img("assets/images/icons/star.png"); ?> 20</th>
 	        				<td><button Onclick="location.href='?uid=<?= $galDtl->id; ?>&user_email=<?= $galDtl->user_email; ?>'" class="primary">Rate Now</button></td>
 	        			</tr>
-	        		</table>        		
+	        		</table> 
+	        		 */ ?>
+	        		<?= br(5); ?>       		
 	        	</div>
 	        </div>        
 	    </div>
 	    
 	    <?php } ?>
-	    
-	    
-	    
-	    
-	    
-
-	    
 	 </section>
-	 
+	</div>
+	 <section>
+	 	<?= br(3); ?>
+	 </section>
 </div>
-<section class="bottom-footer">
-	 	<div class="footer">
-	 		<div align="center">
-	 			All Rights Reserve &copy; PhotoRating | Developed by WMSN
-	 		</div>
-	 	</div>
-	 </section>
+<?php if(isset($_GET['user_email'])){ ?>
+            	<?php $proImg = $getGal->image;
+            	list($width, $height, $type, $attr) = getimagesize("uploads/gallery/$proImg"); 
+            	 $wdth =$width."<br>";
+            	 $hght =$height;
+            	if($wdth>$hght){
+            		
+            		$clss3 = 'img-responsive';
+            		$clss2 = 'class="col-md-10 prof-dtls"';
+            	}else{
+            		$clss3 = 'img-chng';
+            		$clss2 = 'class="col-md-6 prof-dtls"';
+            	}
+
+                 
+            	 ?>
+            	 <?php
+				      $country = $profDtls->country;
+				      $cd = explode("-",$country);
+						$code = @strtolower($cd[1]);
+						$flag = "http://www.geonames.org/flags/x/".$code.".gif";
+						$gender = $profDtls->gender;
+						if($gender=="Male"){
+							$genderIcon = "<i class='fa fa-male fa-2x'></i>";
+						}else{
+							$genderIcon = "<i class='fa fa-female fa-2x'></i>";
+						}
+				    ?>
+<div class="bottom_rating wow slideInRight" data-wow-duration="0.7s">
+	<div  class="cls-mob">
+            		<?php echo img(array("src"=>"assets/images/closebtn.png","class"=>"clsBtns","id"=>"dCls")); ?>
+            		<!---img class="clsBtn" src="assets/images/closebtn.png" alt="close"-->
+            	</div>
+	<div class="rtBox">
+			<div class="row">
+			<span class="nameTxt"><?= $profDtls->name; ?></span>
+
+				<div class="col-md-12">
+					<div class="immg">
+				<?php echo img(array("src"=>"uploads/gallery/$proImg","class"=>$clss3,"alt"=>"profile")); ?>
+				    </div>
+				    
+				    <ul class="myIcon">
+                       <li><?php echo img(array("src"=>$flag,"width"=>"40")); ?> <?= $profDtls->country; ?></li>
+                       <li><?= $genderIcon; ?> <?= $profDtls->gender; ?></li>
+                       <li><i class="fa fa-star rd fa-2x"></i> 9.8</li>
+    			    </ul>
+
+    			    <fieldset class="rating">
+    			    	<h5>Please Rate this Photo</h5>
+									<input type="radio" id="star5" name="rating" value="5" />
+									<label class="full" for="star5" title="Awesome - 5 stars"></label>
+									<input type="radio" id="star4" name="rating" value="4" />
+									<label class="full" for="star4" title="Pretty good - 4 stars"></label>
+									<input type="radio" id="star3" name="rating" value="3" />
+									<label class="full" for="star3" title="Meh - 3 stars"></label>
+									<input type="radio" id="star2" name="rating" value="2" />
+									<label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+									<input type="radio" id="star1" name="rating" value="1" />
+									<label class="full" for="star1" title="Sucks big time - 1 star"></label>
+								</fieldset>
+				<div align="center">
+					<button class="trBtn">Submit</button>
+				</div>
+			    </div>
+		    </div>
+	</div>
+</div>
+<?php } ?>
+
 <?php include("inc/modal.php"); ?>
 <?php include("inc/js.php"); ?>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	$("#dCls").click(function(){
+		$(".bottom_rating").removeClass("slideInRight");
+		$(".bottom_rating").addClass("slideOutRight");
+	});
+	});
+</script>
 
         
 </body>

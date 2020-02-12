@@ -17,10 +17,10 @@
 
             <!-- Sidebar -->
             <div class="wow slideInRight" data-wow-duration="0.7s" id="sidebar-wrapper">
-            	<div class="cls">
-            		<?php // img(array("class"=>"clsBtn", "src"=>"assets/images/closebtn.png", "alt"=>"close")); ?>
-            		
-            	</div>
+            	<div Onclick="location.href='<?= base_url(); ?>'"  class="cls">
+                <?php echo img(array("src"=>"assets/images/closebtn.png","class"=>"clsBtn")); ?>
+                <!---img class="clsBtn" src="assets/images/closebtn.png" alt="close"-->
+              </div>
             	<?php if(!$this->session->userdata('userEmail')){ ?>
             	<div class="profile-pics">
                     <ul>

@@ -122,59 +122,43 @@ echo meta($meta);
 
         <?php
              foreach ($galDtls as $galDtl) {
-                 $image = $galDtl->image;
+                 $images = $galDtl['image'];
+                 if($images==""){
+                 	$image = "default.png";
+                 }else{
+                 	$image = $images;
+                 }
 
               ?>
-             	
 
-            
-
-	 	<div class="cont">
+	 	<div  class="cont">
 	 		<?php echo img(array("class"=>"imgg", "src"=>"uploads/gallery/$image",  "alt"=>"gallery")); ?>
 		 	<br>
 	        <div class="middle">
 	        	<div class="text">
-	        		<table class="tlb">
+	        		<div class="nameTxt" align="center">
+	        			<span><?= $galDtl["name"]; ?></span>
+	        	    </div>
+	        	    <table class="tlbss">
 	        			<tr>
-	        				<th><?= $galDtl->name; ?></th>
-	        				<td><?php echo img("assets/images/icons/comp1.png"); ?> 22</td>
+	        				<th><img width="25" src="<?=$galDtl["flag"]; ?>"> <?= $galDtl["country"]; ?></th>
+	        				<td><?= $galDtl["genderIcon"]; ?> <?= $galDtl["age"]; ?></td>
 	        			</tr>
 	        		</table>
-	        		<hr>
-	        		<table class="tlb">
-	        			<tr>
-	        				<th><?php echo img("assets/images/icons/star.png"); ?> 20</th>
-	        				<td><button Onclick="location.href='<?= base_url(); ?>?uid=<?= $galDtl->id; ?>'" class="primary">Rate Now</button></td>
-	        			</tr>
-	        		</table>        		
+	        		<div align="center">
+	        		   <button Onclick="location.href='?uid=<?= $galDtl["id"]; ?>&user_email=<?= $galDtl["user_email"]; ?>'" class="rateBtn">Rate</button>
+	        	    </div>
+
+	        		<?= br(5); ?>       		
 	        	</div>
 	        </div>        
 	    </div>
 	    
 	    <?php } ?>
-	    
-	    
-	    
-	    
-	    
-
-	    
 	 </section>
-	 <ul class="pagination">
-  <li><a href="#">1</a></li>
-  <li class="active"><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-</ul>
 </div>
 <section class="bottom-footer">
-	 	<div class="footer">
-	 		<div align="center">
-	 			All Rights Reserve &copy; PhotoRating | Developed by WMSN
-	 		</div>
-	 	</div>
-	 </section>
+	 	
 <?php include("inc/modal.php"); ?>
 <?php include("inc/js.php"); ?>
         <script type="text/javascript" src="assets/js/wow.min.js"></script>

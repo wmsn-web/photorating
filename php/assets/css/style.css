@@ -56,7 +56,7 @@ body {
   position: absolute;
   right: 250px;
   top:1px;
-  width: 730px !important ;
+  width: 980px !important ;
   height: 830px !important;
   border: dashed 1px #C83C3C;
   margin-right: -250px;
@@ -190,7 +190,7 @@ a.link{text-decoration: none}
  .bottom-footer{margin-top: 30px; position: relative; bottom: 0; width: 100%}
  .footer{padding: 20px; background: #707070; color: #fff}
 
-
+.container-fluidx{padding-left:45px; padding-right:45px; margin: auto; }
 
 .mainGal{
 	padding-top:55px;
@@ -201,11 +201,11 @@ a.link{text-decoration: none}
   
    line-height: 0;
    
-   -webkit-column-count: 4;
+   -webkit-column-count: 6;
    -webkit-column-gap:   10px;
-   -moz-column-count:    4;
+   -moz-column-count:    6;
    -moz-column-gap:      0px;
-   column-count:         4;
+   column-count:         6;
    column-gap:           10px;
 }
 
@@ -215,6 +215,8 @@ a.link{text-decoration: none}
   height: auto; ;
  position: relative;
  margin-bottom: 15px;
+ 
+ box-shadow: 5px -5px 10px #8F8F8F;
 
 }
 
@@ -226,15 +228,16 @@ a.link{text-decoration: none}
   backface-visibility: hidden;}
 
 .middle {
-	width: 100%;
-  transition: .5s ease;
+	position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
   opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
+  transition: .5s ease;
+
 }
 /*///////////
 Settings
@@ -381,14 +384,65 @@ My Photos
 My Photos
 ///////////////*/
 
+/*/////////////////
+My Reviews
+/////////////////*/
+#photos .contx{
+  
+  width: 100% ;
+  height: auto; ;
+ position: relative;
+ margin-bottom: 15px;
+ background: #000;
+
+}
+
+.contx .imgg{width: 100% !important ;
+  height: auto !important ;
+  opacity: 0.8;
+  display: block;
+
+  transition: .5s ease;
+  backface-visibility: hidden;}
+
+.midTxt {
+  width: 100%;
+  transition: .5s ease;
+  opacity: 1;
+  position: absolute;
+  bottom: 3%;
+  left: 30%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+#photos .contx .imgg:hover {
+  opacity: 1;
+}
+/*/////////////////
+My Reviews
+/////////////////*/
+.middle .text .nameTxt{text-align: center; margin-top: 10%;}
+.middle .text .nameTxt span{color: #000; font-size: 18px; font-weight: bold;}
+.middle .tlbss{width: 100%; margin-top:10%;}
+.middle .tlbss th{text-align: left; color: #000}
+.middle .tlbss td{text-align: right;  color: #000}
+.middle .tlbss .fa{color: #DC452B}
+.middle .rateBtn{position: absolute; bottom: 10%; left: 30%;
+  padding: 10px 25px; background-image:linear-gradient(#DC452B, #F49C8C);
+  border: solid 1px #DC452B; color: #fff;
+}
+
 
 .text {
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.60);
   color: #707070;
   font-size: 14px;
   padding: 8px;
   cursor: pointer;
   border: solid 1px #707070;
+  height: 100%;
 }
 .cont .tlb{width: 100%}
 .cont .tlb th{text-align: left;}
@@ -500,3 +554,159 @@ My Photos
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
+
+#mobd{display: none;}
+
+.slider-wrap {
+  width: 99.8%;
+  height: 500px;
+  position: absolute;
+  left: 44.2%;
+  margin-left: -150px;
+  top: 50%;
+  margin-top: -225px;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ms-touch.slider::-webkit-scrollbar {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  }
+
+.ms-touch.slider {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  
+  -ms-overflow-style: none;
+  /* Hides the scrollbar. */
+  
+  -ms-scroll-chaining: none;
+  /* Prevents Metro from swiping to the next tab or app. */
+  
+  -ms-scroll-snap-type: mandatory;
+  /* Forces a snap scroll behavior on your images. */
+  
+  -ms-scroll-snap-points-x: snapInterval(0%, 100%);
+  /* Defines the y and x intervals to snap to when scrolling. */
+}
+
+.holder {
+  width: 300%;
+  max-height: 500px;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.slide-wrapper {
+  width: 33.333%;
+  height: 100%;
+  float: left;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  height: 100%;
+  position: relative;
+}
+
+.temp {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  font-size: 26px;
+  bottom: 15px;
+  left: 15px;
+  font-family: 'Josefin Slab', serif;
+  font-weight: 100;
+}
+
+.slide-wrapper .bntt {
+  position: absolute;
+  background: #090;
+  border: solid 1px;
+  z-index: 1;
+  color: white;
+  font-size: 18px;
+  top: 8px;
+  right: 25px;
+  font-family: 'Josefin Slab', serif;
+  font-weight: 100;
+  padding: 3px 22px;
+  border-radius: 65px;
+}
+
+.slide img {
+  position: relative;
+  z-index: 0;
+  width: 400px;
+  transform: translatex(-100px);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(transparent, black);
+}
+
+.slide div {
+  width: 300px;
+  height: 500px;
+  z-index: 0;
+}
+
+.rating input[type="radio"]{
+  display: none;
+}
+
+.rating label:after {
+
+   content: "\2606";
+   font-size: 60px;
+   color: #F39A9A;
+}
+.rating label:brfore {
+
+   content: "\2606";
+   font-size: 60px;
+   color: #F39A9A;
+}
+
+.rating {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+      margin-top: 15px;
+    }
+    .rating > label {
+      display: inline-block;
+      position: relative;
+      font-size: 60px;
+    }
+    .rating > label:hover,
+    .rating > label:hover ~ label {
+      color: #ccc;
+    }
+    .rating >input:checked ~ label:before,
+    .rating > label:hover ~ label:before {
+       content: "\2605";
+       position: absolute;
+       left: 0;
+       color: #DC452B;
+    }
+
+    .rating > label:hover,
+    .rating >input:checked ~ label:hover ~ label {
+      color: #ccc;
+    }

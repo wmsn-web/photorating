@@ -85,6 +85,11 @@ echo meta($meta);
 									<?php
                                        $authMail = $this->session->userdata('userEmail');
 									   $sql1 = mysqli_query($db,"SELECT * FROM friendsall WHERE authemail='$authMail' AND status='0'");
+									   $num = mysqli_num_rows($sql1);
+									   if($num==0){
+									   	echo "<div class='alert alert-danger'>You do not have Half Friends</div>" ;
+									   }else{
+									   //f(mysqli_num_rows($sql1>0)){
 									   while($row = mysqli_fetch_array($sql1)){
 									   	$frndEmail = $row['useremail'];
 									   	$rqst = $row['rqst'];
@@ -130,7 +135,7 @@ echo meta($meta);
 											</button>
 										</td>
 									</tr>
-								<?php } ?>
+								<?php } } ?>
 								</table>
 				            </div>
 						</div>
