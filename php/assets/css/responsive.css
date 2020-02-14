@@ -80,13 +80,14 @@
    border: solid 1px #EEEDED; background: #EEEDED; color: #000; border-radius: 55px !important;
   }
 
+
   .set_menu_mob ul li.activeUl {border: solid 1px #E65050; background: #E65050; color: #fff}
   /*.set_menu_mob ul li:first-child{border: solid 1px #E65050; background: #E65050; color: #fff}*/
   .set_menu_mob ul li:last-child{margin-left: 15px}
   .friendList .mdlTd{display: none;}
   .friendList .mobTxt {display: block;}
 
-  .bottom_rating{position: fixed;
+  .bottom_rating{position: absolute;
     top: 0;
     padding: 20px;
     background: #fff;
@@ -98,9 +99,9 @@
 .cls-mob{position: absolute; top: 12px; right: 12px}
 .rtBox{position: absolute; top:10%; left: 15px}
 .rtBox .nameTxt{font-size: 22px; font-weight: bold; color: #DC452B; padding-bottom: 8px; padding-left: 35px}
-}
+
 .rtBox .cntrTxt{font-size: 18px; font-weight: bold; color: #DC452B; padding-bottom: 20px; padding-left: 20px}
-}
+
 .rtBox .immg{padding-left: 20px; padding-right: 20px; margin: auto;}
 .myIcon{width: 100%; padding-top: 25px}
 .myIcon li img{width: 40px !important}
@@ -115,7 +116,55 @@
 
  .img-chng{width:180; height: 200;}
 
+ .cont .middle .rateBtn{position: absolute; bottom: 20%; left: 24.5%;
+  padding: 15px; background-image:linear-gradient(#DC452B, #F49C8C);
+  border: solid 1px #DC452B; color: #fff; width:130px; font-size: 22px;
+  border-radius: 65px;
 }
-  
+
+.ratingd input[type="radio"]{
+  display: none;
+}
+
+.ratingd label:after {
+
+   content: "\2606";
+   font-size: 60px;
+   color: #F39A9A;
+}
+.ratingd label:brfore {
+
+   content: "\2606";
+   font-size: 60px;
+   color: #F39A9A;
+}
+
+.ratingd {
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+      margin-top: 15px;
+    }
+    .ratingd > label {
+      display: inline-block;
+      position: relative;
+      font-size: 60px;
+    }
+    .ratingd > label:hover,
+    .ratingd > label:hover ~ label {
+      color: #ccc;
+    }
+    .ratingd >input:checked ~ label:before,
+    .ratingd > label:hover ~ label:before {
+       content: "\2605";
+       position: absolute;
+       left: 1px;
+       color: #DC452B;
+    }
+
+    .ratingd > label:hover,
+    .ratingd >input:checked ~ label:hover ~ label {
+      color: #ccc;
+    }
   
 }

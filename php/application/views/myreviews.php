@@ -43,8 +43,8 @@ echo meta($meta);
 							<ul>
 								<li><a<?=($this->uri->segment(1) == 'myprofile' ? ' class="actv"' : '');?> href="myprofile">My Profile</a></li>
 								<li><a<?=($this->uri->segment(1) == 'myphoto' ? ' class="actv"' : '');?> href="myphoto">My Photos</a></li>
-								<li><a<?=($this->uri->segment(1) == 'myHalfFriends' ? ' class="actv"' : '');?> href="myHalfFriends">My half Friends</a></li>
-								<li><a<?=($this->uri->segment(1) == 'myFriends' ? ' class="actv"' : '');?> href="myFriends">My Fill Friends</a></li>
+								<li><a<?=($this->uri->segment(1) == 'myHalfFriends' ? ' class="actv"' : '');?> href="myHalfFriends">My Half Friends</a></li>
+								<li><a<?=($this->uri->segment(1) == 'myFriends' ? ' class="actv"' : '');?> href="myFriends">My Full Friends</a></li>
 								<li><a<?=($this->uri->segment(1) == 'myreviews' ? ' class="actv"' : '');?> href="myreviews">My reviews</a></li>
 							</ul>
 						</div>
@@ -61,29 +61,30 @@ echo meta($meta);
 						
 					</div>
 					<div class="myLocation">
-						 <?php foreach ($revData as $revDatas) { ?>
-                             	<?php $status = $revDatas['status'];
-						if($status=="0"){ ?>
-							<div class="alert alert-danger">
-								You do not have any Reviews!
-							</div>
-					    <?php }else{ ?>
-						
+						<?php if($revData=="errors"){ ?>
+                                 <div class="alert alert-danger">
+                                 	You do not have any reviews!
+                                 </div>
+                            <?php }else{ ?>
 						<section id="photos">
                              
                              <?php foreach ($revData as $revDatas) { ?>
                              	
-
+                             	
+                     
 							<div class="contx">
 								<img  class="imgg" src="uploads/gallery/<?= $revDatas['image']; ?>">
 								<div class="midTxt">
-									<img src="assets/images/icons/star.png">
-									<?= $revDatas['rates']; ?>
+									<i class="fa fa-star text-danger"></i>
+									<?= number_format($revDatas['rates'],1); ?>
 								</div>
 							</div>
-							<?php } } } ?>
+					
+							<?php } ?>
 
                         </section>
+                        <?php } ?>
+
 					</div>
 				</div>
 				

@@ -86,6 +86,10 @@ body {
  color: #fff; font-size: 16px; border: 1px solid #DC452B; border-radius: 60px !important;
  margin-top: 15px; width: 175px; cursor: pointer; outline: none;
  }
+ .trBtn{padding: 4px; background-image: linear-gradient(#DC452B, #F49C8C);
+ color: #fff; font-size: 16px; border: 1px solid #DC452B; border-radius: 60px !important;
+ margin-top: 15px; width: 175px; cursor: pointer; outline: none;
+ }
 .prof-dtls{margin-top: 45px;}
 .img-responsive{width:100% !important; height:auto !important;}
 .clsBtn{cursor: pointer;}
@@ -410,8 +414,8 @@ My Reviews
   transition: .5s ease;
   opacity: 1;
   position: absolute;
-  bottom: 3%;
-  left: 30%;
+  bottom: 1%;
+  left: 25%;
   color: #fff;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -426,12 +430,13 @@ My Reviews
 .middle .text .nameTxt{text-align: center; margin-top: 10%;}
 .middle .text .nameTxt span{color: #000; font-size: 18px; font-weight: bold;}
 .middle .tlbss{width: 100%; margin-top:10%;}
-.middle .tlbss th{text-align: left; color: #000}
+.middle .tlbss th{text-align: left; color: #000; font-size: 14px; line-height: 18px}
 .middle .tlbss td{text-align: right;  color: #000}
 .middle .tlbss .fa{color: #DC452B}
-.middle .rateBtn{position: absolute; bottom: 10%; left: 30%;
-  padding: 10px 25px; background-image:linear-gradient(#DC452B, #F49C8C);
-  border: solid 1px #DC452B; color: #fff;
+.middle .rateBtn{position: absolute; bottom: 20%; left: 6%;
+  padding: 15px; background-image:linear-gradient(#DC452B, #F49C8C);
+  border: solid 1px #DC452B; color: #fff; width:180px; font-size: 22px;
+  border-radius: 65px;
 }
 
 

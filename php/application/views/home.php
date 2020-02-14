@@ -86,8 +86,12 @@ echo meta($meta);
 	        	    </div>
 	        	    <table class="tlbss">
 	        			<tr>
-	        				<th><img width="25" src="<?=$galDtl["flag"]; ?>"> <?= $galDtl["country"]; ?></th>
-	        				<td><?= $galDtl["genderIcon"]; ?> <?= $galDtl["age"]; ?></td>
+	        				<th>&nbsp;
+	        				</th>
+	        				<th> &nbsp;</th>
+	        			</tr>
+	        			<tr>
+	        				<th>&nbsp;</th>
 	        			</tr>
 	        		</table>
 	        		<div align="center">
@@ -138,11 +142,10 @@ echo meta($meta);
                  
             	 ?>
             	 <?php
-				      $country = $profDtls->country;
-				      $cd = explode("-",$country);
-						$code = @strtolower($cd[1]);
-						$flag = "http://www.geonames.org/flags/x/".$code.".gif";
-						$gender = $profDtls->gender;
+				      $country = $profDtls["country"];
+				      
+						$flag = "http://www.geonames.org/flags/x/".strtolower($country).".gif";
+						$gender = $profDtls["gender"];
 						if($gender=="Male"){
 							$genderIcon = "<i class='fa fa-male fa-2x'></i>";
 						}else{
@@ -156,7 +159,7 @@ echo meta($meta);
             	</div>
 	<div class="rtBox">
 			<div class="row">
-			<span class="nameTxt"><?= $profDtls->name; ?></span>
+			<span class="nameTxt"><?= $profDtls["name"]; ?></span>
 
 				<div class="col-md-12">
 					<div class="immg">
@@ -164,26 +167,41 @@ echo meta($meta);
 				    </div>
 				    
 				    <ul class="myIcon">
-                       <li><?php echo img(array("src"=>$flag,"width"=>"40")); ?> <?= $profDtls->country; ?></li>
-                       <li><?= $genderIcon; ?> <?= $profDtls->gender; ?></li>
+                       <li><?php echo img(array("src"=>$flag,"width"=>"40")); ?> <?= $profDtls["country"]; ?></li>
+                       <li><?= $genderIcon; ?> <?= $profDtls["gender"]; ?></li>
                        <li><i class="fa fa-star rd fa-2x"></i> 9.8</li>
     			    </ul>
-
-    			    <fieldset class="rating">
+                <?php if($this->session->userdata('userEmail')){ ?>
+                	<?php  if($getRevs==1){ ?> 
+	            			    	   <h3 align="center"> Thank you for Rate this Photo</h3>
+	            			  <?php }  else{  ?>
+	            			  	<div align="center"><img align="center" id="gifPics" src="assets/images/succs.gif"></div>
+	            			  	<div id="rrtts">
+    			    <fieldset class="ratingd">
     			    	<h5>Please Rate this Photo</h5>
-									<input type="radio" id="star5" name="rating" value="5" />
-									<label class="full" for="star5" title="Awesome - 5 stars"></label>
-									<input type="radio" id="star4" name="rating" value="4" />
-									<label class="full" for="star4" title="Pretty good - 4 stars"></label>
-									<input type="radio" id="star3" name="rating" value="3" />
-									<label class="full" for="star3" title="Meh - 3 stars"></label>
-									<input type="radio" id="star2" name="rating" value="2" />
-									<label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-									<input type="radio" id="star1" name="rating" value="1" />
-									<label class="full" for="star1" title="Sucks big time - 1 star"></label>
+									<input type="radio" id="star5s" name="rating" value="5" />
+									<label class="full" for="star5s" title="Awesome - 5 stars"></label>
+									<input type="radio" id="star4s" name="rating" value="4" />
+									<label class="full" for="star4s" title="Pretty good - 4 stars"></label>
+									<input type="radio" id="star3s" name="rating" value="3" />
+									<label class="full" for="star3s" title="Meh - 3 stars"></label>
+									<input type="radio" id="star2s" name="rating" value="2" />
+									<label class="full" for="star2s" title="Kinda bad - 2 stars"></label>
+									<input type="radio" id="star1s" name="rating" value="1" />
+									<label class="full" for="star1s" title="Sucks big time - 1 star"></label>
 								</fieldset>
 				<div align="center">
-					<button class="trBtn">Submit</button>
+					                <input type="hidden" id="froms"  name="" value="<?= $imgPro->email ?>">
+		            			    <input type="hidden" id="users"  name="" value="<?= $profDtls["email"] ?>">
+		            			    <input type="hidden" id="imgids"  name="" value="<?= $_GET['uid']; ?>">
+		            			    <span id="mssg" class="text-danger"></span>
+					<button id="trBtns" class="trBtn">Submit</button>
+				</div>
+				<?php } }else{
+
+					echo "<a href='signin'>Please Login to Rate this Photo</a>";
+
+				} ?>
 				</div>
 			    </div>
 		    </div>

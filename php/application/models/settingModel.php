@@ -18,14 +18,24 @@ class SettingModel extends CI_model
 		return $qery->row();
 	}
 
-	public function updatePro($name, $email, $country, $age, $gender, $about,$imgs){
+	public function updatePro($name, $email, $country, $dob, $age, $gender, $about,$imgs){
+       
+        $names =    $this->db->escape_str($name);
+        $emails =   $this->db->escape_str($email);
+        $countrys = $this->db->escape_str($country);
+        $ages =     $this->db->escape_str($age);
+        $dobs =     $this->db->escape_str($dob);
+        $genders =  $this->db->escape_str($gender);
+		$abouts =   $this->db->escape_str($about);
+		$imgss =    $this->db->escape_str($imgs);
 
 	$updt = $this->db->query("UPDATE `user_profile` SET 
-               `name`='$name',
-               `country`='$country',
-               `age`='$age',
-               `gender`='$gender',
-               `about`='$about',`image`='$imgs',`activation`='on' WHERE `email`='$email'");
+               `name`='$names',
+               `country`='$countrys',
+               `dob`='$dobs',
+               `age`='$ages',
+               `gender`='$genders',
+               `about`='$abouts',`image`='$imgss',`activation`='on' WHERE `email`='$emails'");
 
 	if($updt){
 		return TRUE;

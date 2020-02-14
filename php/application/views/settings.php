@@ -29,8 +29,17 @@ echo meta($meta);
             <div class="row">
                 <?php
                  if($feedback = $this->session->flashdata("feedback")){ ?>
+                    <?php
+                    $statuss = $this->session->flashdata("status");
+
+                        if($statuss =="success"){
+                           $class = 'class="alert alert-success"';
+                         }else{
+                            $class = 'class="alert alert-danger"';
+                         }
+                    ?>
                  <div class="col-md-12">   
-                     <div class="alert alert-success">
+                     <div <?= $class ?>>
                          <?= $feedback; ?>
                      </div>
                  </div>
@@ -81,21 +90,9 @@ echo meta($meta);
                                     </select></td>
                             </tr>
                             <tr>
-                                <th>Age:</th>
-                                <td><?php
-                                   echo ' <select name="age" required="required">';
-                                   echo '<option selected="selected" value="'.$getDtlsd->age.'"';
-                                   echo ' >'.$getDtlsd->age.'</option>';
- $starting_year  =18;
- $ending_year = 40;
- $current_year = 18;
- for($starting_year; $starting_year <= $ending_year; $starting_year++) {
-     echo '<option value="'.$starting_year.'"';
-     
-     echo ' >'.$starting_year.'</option>';
- }               
- echo '<select>'; ?>
-                                    
+                                <th>Date of Birth:</th>
+                                <td>
+                                    <input type="date" name="dob" value="<?= $getDtlsd->dob; ?>">
                                 </td>
                             </tr>
                             <?php

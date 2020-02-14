@@ -14,7 +14,8 @@ class Myreviews extends CI_controller
 			$authMail = $this->session->userdata('userEmail');
             $imgPro = $this->Home_model->getAuth($authMail);
 			$revData = $this->RevModel->getData($authMail);
-
+            
+            //echo "<pre>";
 			//print_r($revData);
 
 			

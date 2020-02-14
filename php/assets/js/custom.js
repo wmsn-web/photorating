@@ -1,7 +1,13 @@
 $(document).ready(function(){
                	$(".filters").hide();
                     $("#chngp").hide();
-                    $("mset").hide();
+                    $("#mset").hide();
+                    $("#gifPic").hide();
+                    $("#rrtt").show();
+                    $(".trBtn").show();
+                    $("#gifPics").hide();
+                    $("#rrtts").show();
+                    $("#trBtns").show();
                     $("#mSeting").css("color","#D85D72");
                     $("#chPsBtn").attr("disabled","disabled");
                	$("#tgl").click(function(){
@@ -130,7 +136,36 @@ $(".trBtn").click(function(){
           },
     function(response,status){
                if(response=="1"){
-                    location.href="home";
+                    $("#gifPic").show();
+                    $("#rrtt").hide();
+                    $(".trBtn").hide();
+               }
+          }
+
+     )
+}
+});
+
+$("#trBtns").click(function(){
+     var dd= $("input[name='rating']:checked").val();
+     var user= $("#users").val();
+     var fromUser= $("#froms").val();
+     var imgid= $("#imgids").val();
+     if(dd==undefined){$("#mssg").html("Please Click on Rate number")}else{
+    
+    $.post("home/rateStar",
+          {
+               rate :        dd,
+               main_user:    user,
+               from_user:      fromUser,
+               imgid :       imgid
+
+          },
+    function(response,status){
+               if(response=="1"){
+                    $("#gifPics").show();
+                    $("#rrtts").hide();
+                    $("#trBtns").hide();
                }
           }
 

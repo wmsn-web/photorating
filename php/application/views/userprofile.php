@@ -64,8 +64,11 @@ echo meta($meta);
 					<div class="myRev">
 						
 					</div>
-				</div>
+				</div> 
+
 				<?php
+				 $getUth = $checkRqsts;
+				 if($getUth > 0){
 				     $btnTxt = "";
 				     $disp= "";
                      $status = $checkRqst->status;
@@ -78,6 +81,10 @@ echo meta($meta);
                      	$btnTxt = "Request Sent";
                      	$disp= "disabled='disabled'";
                      }
+                 }else{
+                 	$btnTxt = "Send Request";
+                     	$disp= "";
+                 }
 
                      
 				?>

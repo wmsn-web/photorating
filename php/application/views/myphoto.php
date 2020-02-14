@@ -114,8 +114,8 @@ echo meta($meta);
 							<ul>
 								<li><a<?=($this->uri->segment(1) == 'myprofile' ? ' class="actv"' : '');?> href="myprofile">My Profile</a></li>
 								<li><a<?=($this->uri->segment(1) == 'myphoto' ? ' class="actv"' : '');?> href="myphoto">My Photos</a></li>
-								<li><a<?=($this->uri->segment(1) == 'myHalfFriends' ? ' class="actv"' : '');?> href="myHalfFriends">My half Friends</a></li>
-								<li><a<?=($this->uri->segment(1) == 'myFriends' ? ' class="actv"' : '');?> href="myFriends">My Fill Friends</a></li>
+								<li><a<?=($this->uri->segment(1) == 'myHalfFriends' ? ' class="actv"' : '');?> href="myHalfFriends">My Half Friends</a></li>
+								<li><a<?=($this->uri->segment(1) == 'myFriends' ? ' class="actv"' : '');?> href="myFriends">My Full Friends</a></li>
 								<li><a<?=($this->uri->segment(1) == 'myreviews' ? ' class="actv"' : '');?> href="myreviews">My reviews</a></li>
 							</ul>
 						</div>
@@ -145,20 +145,14 @@ echo meta($meta);
                                  
 							 foreach ($allImg as $allImgs) { ?>
 								
-							<!---
-	                        <div class="cont">
-			 					<img class="imgg" src="assets/images/<?= $allImgs->image ?>"  alt="gallery"><br>
-			 					<div class="middlex">
-						        		hello
-	        					</div>   
-		                    </div>
-		                    --->
+							
 		                    
 		                    <div class="cont">
 	 		<?php echo img(array("class"=>"imgg", "id"=>"emg_$allImgs->id", "src"=>"uploads/gallery/$allImgs->image",  "alt"=>"gallery")); ?>
 		 	<br>
-	        <div class="middlex">
-	        	<div class="text">
+	        <div class="middle">
+	        	<div style="margin-top: 45%" align="center">
+	        		<?= br(4); ?>
 	        		<button id="del_<?= $allImgs->id ?>" class="btn btn-danger delt">Delete</button> 		
 	        	</div>
 	        </div>        

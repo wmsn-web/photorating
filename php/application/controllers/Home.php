@@ -11,7 +11,7 @@ class Home extends CI_controller
 	    if(isset($_GET['uid'])){
 		$uid = $_GET['uid'];
 	    }else{
-	    	$uid = "";
+	    	$uid = ""; 
 	    }
 	    $this->load->library('session');
 		$this->load->model("Home_model");
@@ -20,10 +20,12 @@ class Home extends CI_controller
      	$imgPro = $this->Home_model->getAuth($authMail);		
 		$galDtls = $this->Home_model->HomeGallery($authMail);
 		$getRevs = $this->Home_model->getRevsGal($authMail,$uid);
-        
-
+        $profDtls = "";
+		$getGal = "";
+        if(isset($_GET['uid'])){
 		$profDtls = $this->Home_model->getProfile($user_email);
 		$getGal = $this->Home_model->getgal($uid);
+	}
 
 		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"imgPro"=>$imgPro,"getGal"=>$getGal,"getRevs"=>$getRevs]);
 
@@ -31,9 +33,12 @@ class Home extends CI_controller
 	}else{
 		$authMail="";
 		$galDtls = $this->Home_model->HomeGallery($authMail);
-		
+		$profDtls = "";
+		$getGal = "";
+		if(isset($_GET['uid'])){
 		$profDtls = $this->Home_model->getProfile($user_email);
 		$getGal = $this->Home_model->getgal($uid);
+	}
 		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"getGal"=>$getGal,"imgPro"=>""]);
 	}
 	
@@ -58,7 +63,7 @@ class Home extends CI_controller
                   }
 				
 			}else{
-				$this->load->view('signin');
+				return redirect('signin');
 					}
 	}
 

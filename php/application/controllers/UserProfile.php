@@ -12,7 +12,13 @@ class UserProfile extends CI_controller
 		$this->load->model("GetUserProfile");
 		$getUser = $this->GetUserProfile->aboutUser($user_mail,$authMail);
 		$checkRqst = $this->GetUserProfile->checkRqst($user_mail,$authMail);
-		$this->load->view("userprofile",["imgPro"=>$imgPro,"getUser"=>$getUser,"checkRqst"=>$checkRqst]);
+		 $checkRqsts = $checkRqst->num_rows();
+		 if($checkRqsts==0){
+                $checkRqsts2 = "";
+		 }else{
+		 $checkRqsts2 = $checkRqst->row();
+		}
+		$this->load->view("userprofile",["imgPro"=>$imgPro,"getUser"=>$getUser,"checkRqst"=>$checkRqsts2, "checkRqsts"=>$checkRqsts]);
 	}else{
 		return redirect("signin");
 	}

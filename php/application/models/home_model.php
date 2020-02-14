@@ -43,8 +43,27 @@ class Home_model extends CI_model
 				
 	
 	public function getProfile($user_email){
+
 		$getProfile = $this->db->query("SELECT * FROM user_profile WHERE email='$user_email'");
-		return $getProfile->row();
+		 $gtprf = $getProfile->row();
+
+		$sqlnn = $this->db->query("SELECT SUM(rate) as rate FROM `reviews` WHERE `main_user` ='$user_email'");
+		$rows = $sqlnn->row();
+		$numRows = $sqlnn->num_rows();
+		$rv = $rows->rate;
+        if($numRows==0){
+         $rvs = "0.0";
+        }else{
+		$rvs = $rv/$numRows;
+		$rates = number_format($rvs);
+	}
+
+		$cntr = $gtprf->country;
+		$cntrr = explode("-",$cntr);
+		$country = $cntrr[1];
+
+		return $gtdata[$gtprf->id] = array("name"=>$gtprf->name,"country"=>$country,"about"=>$gtprf->about,"gender"=>$gtprf->gender,"rates"=>$rates,"email"=>$gtprf->email);
+
 	}
 	public function getgal($uid){
 		$getgal = $this->db->query("SELECT * FROM gallery WHERE id='$uid'");

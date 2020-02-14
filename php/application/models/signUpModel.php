@@ -14,7 +14,7 @@ class SignUpModel extends CI_model
 			return FALSE;
 			 
 		}else{
-           $this->db->query("INSERT INTO `user_profile` SET `email`='$useremail', `password`='$password'");
+           $this->db->query("INSERT INTO `user_profile` SET `email`='$useremail', `password`='$password',`activation`='off'");
            return TRUE;
 		}
 

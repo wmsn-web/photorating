@@ -55,7 +55,9 @@
 	                   <li><a <?=($this->uri->segment(1) == 'myprofile' || $this->uri->segment(1) == 'myreviews' || $this->uri->segment(1) == 'myphoto' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>myprofile">My Profile</a></li>
 	                   <li><a <?=($this->uri->segment(1) == 'myHalfFriends' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>myHalfFriends">My Half friend</a></li>
 	                   <li><a <?=($this->uri->segment(1) == 'myFriends' ? ' class="actv"' : '');?>  href="<?= base_url(); ?>myFriends">My Full Friend</a></li>
-	                   <li><a href="<?= base_url(); ?>home/logout">Logout</a></li>
+                     <?php if($this->session->userdata("userEmail")){ ?>
+	                     <li><a href="<?= base_url(); ?>home/logout">Logout</a></li>
+                     <?php } ?>
 	            	</ul>
                </div>
            

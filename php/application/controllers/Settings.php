@@ -24,15 +24,32 @@ class Settings extends CI_controller
 	}
 	}
 
+
 	public function addprofile(){
 		$name = $this->input->post('name');
 		$act = $this->input->post('act');
 		$email = $this->input->post('email');
 		$country = $this->input->post('country');
-		$age = $this->input->post('age');
+		$dob = $this->input->post('dob');
 		$gender = $this->input->post('gender');
 		$about = $this->input->post('about');
 		$hide_img = $this->input->post('hide_img');
+
+		$today = date('Y-m-d');
+
+		$d1 = new DateTime($today);
+$d2 = new DateTime($dob);
+
+ $diff = $d2->diff($d1);
+ $age =  $diff->y;
+ if($age < 18){
+
+$this->session->set_flashdata(["feedback"=>"Invalid Date Selected! (Your age bellow 18)", "status"=>"failed"]);
+return redirect('settings');
+
+ }else{
+
+
 
 		if($hide_img==""){
 
@@ -63,13 +80,14 @@ class Settings extends CI_controller
              }
 
 		$this->load->model("settingModel");
-		$addAll = $this->settingModel->updatePro($name, $email, $country, $age, $gender, $about, $imgs);
+		$addAll = $this->settingModel->updatePro($name, $email, $country, $dob, $age, $gender, $about, $imgs);
 
-		       $this->session->set_flashdata("feedback","Profile Updated Successfully");
+		       $this->session->set_flashdata(["feedback"=>"Profile Updated Successfully","status"=>"success"]);
 			
 				return redirect('settings');
 				
 				}
+			}
 			
 			public function changePass()
 			{
@@ -78,10 +96,12 @@ class Settings extends CI_controller
 				$password = md5($passwords);
 				$this->load->model("settingModel");
 				$ChangePass = $this->settingModel->ChangePass($password,$userEmail);
-		        $this->session->set_flashdata("feedback","Password Changed Successfully");
+		        $this->session->set_flashdata(["feedback","Password Changed Successfully","status"=>"success"]);
 			
 				return redirect('settings');
 			}
+
+		
 		
 	
 }
