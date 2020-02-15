@@ -5,6 +5,7 @@ body {
 .navbar{background-color:#FFFFFF !important;}
 .navbar a.navbar-brand {font-weight:bold;color:#000 !important}
 .navbar-nav .item-logo{font: Regular 60px/80px Segoe UI; font-size:48px; color: #707070; }
+.navbar-nav .item-logo img{width: 220px !important;}
 
 
 #wrapper {

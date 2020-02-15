@@ -12,6 +12,13 @@ class Home_model extends CI_model
 	
 	public function homeGallery($authMail)
 	   {
+
+	   	$type = "";
+	   	if(isset($_GET['type'])){
+	   		$type = $_GET['type'];
+	   	}
+
+
 		
 			//$query = $this->db->query("SELECT * FROM gallery WHERE user_email!='$authMail'  ORDER BY id DESC");
 			//return $query->result();
@@ -26,15 +33,28 @@ class Home_model extends CI_model
 				$code = @strtolower($cd[1]);
 				$flag = "http://www.geonames.org/flags/x/".$code.".gif";
 				$gender = $query2->gender;
+                 
+                 if($type==$gender){
+                 	$imgStyle = "style='display:block;'";
+                 }elseif($type==""){
+                 	$imgStyle = "style='display:block;'";
+                 }else{
+                    $imgStyle = "style='display:none;'";
+                 }
+
+                 
+
 				if($gender=="Male"){
 					$genderIcon = "<i class='fa fa-male'></i>";
-				}else{
+				}elseif($gender=="Female"){
 					$genderIcon = "<i class='fa fa-female'></i>";
+				}else{
+					$$genderIcon = "";
 				}
 
 
 
-				$galData[$qs->id]= array("image"=>$qs->image,"name"=>$user_name, "age"=>$query2->age,"country"=>$query2->country,"flag"=>$flag,"genderIcon"=>$genderIcon,"id"=>$qs->id,"user_email"=>$galUser);
+				$galData[$qs->id]= array("image"=>$qs->image,"name"=>$user_name, "age"=>$query2->age,"country"=>$query2->country,"flag"=>$flag,"genderIcon"=>$genderIcon,"id"=>$qs->id,"user_email"=>$galUser,"imgStyle"=>$imgStyle);
 
 			}
 			return $galData;

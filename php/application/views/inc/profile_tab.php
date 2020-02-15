@@ -50,7 +50,7 @@
 	            			    <?php  if($getRevs==1){ ?>
 	            			    	   <h3 align="center"> Thank you for Rate this Photo</h3>
 	            			  <?php }  else{  ?>
-	            			  	<div align="center"><img align="center" id="gifPic" src="assets/images/succs.gif"></div>
+	            			  	
 	            			  	<div id="rrtt">
 	            			    <fieldset class="rating">
 	            			    	

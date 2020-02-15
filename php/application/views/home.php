@@ -57,8 +57,8 @@ echo meta($meta);
 <div class="mainGal">
 	<div align="center">
 		<div class="filters">
-			<button class="fltrBtn">Female</button>
-			<button class="fltrBtn">Female</button>
+			<button onclick="location.href='<?= base_url(); ?>?type=Male'" class="fltrBtn">Male</button>
+			<button onclick="location.href='<?= base_url(); ?>?type=Female'" class="fltrBtn">Female</button>
 			
 		</div>
 	</div>
@@ -77,7 +77,8 @@ echo meta($meta);
               ?>
 
 	 	<div  class="cont">
-	 		<?php echo img(array("class"=>"imgg", "src"=>"uploads/gallery/$image",  "alt"=>"gallery")); ?>
+	 		<img src="uploads/gallery/<?= $image ?>" <?= $galDtl['imgStyle']; ?> class="imgg" alt="gallery" />
+	 		<?php //echo img(array("class"=>"imgg", "src"=>"uploads/gallery/$image",  "alt"=>"gallery")); ?>
 		 	<br>
 	        <div class="middle">
 	        	<div class="text">
@@ -175,7 +176,7 @@ echo meta($meta);
                 	<?php  if($getRevs==1){ ?> 
 	            			    	   <h3 align="center"> Thank you for Rate this Photo</h3>
 	            			  <?php }  else{  ?>
-	            			  	<div align="center"><img align="center" id="gifPics" src="assets/images/succs.gif"></div>
+	            			  	
 	            			  	<div id="rrtts">
     			    <fieldset class="ratingd">
     			    	<h5>Please Rate this Photo</h5>

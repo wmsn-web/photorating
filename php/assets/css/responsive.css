@@ -1,5 +1,6 @@
 @media(max-width:991px) {
 	.navbar-nav .item-logo{font: Regular 60px/80px Segoe UI; font-size:26px; color: #707070; }
+  .navbar-nav .item-logo img{width: 95px !important;}
 	#tgl{width: 35px; height: 15px}
 	.fltr, .menus{padding: none}
 	.menus{display: none;}

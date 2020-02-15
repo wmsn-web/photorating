@@ -122,7 +122,10 @@ echo meta($meta);
 					</div>
 					<div class="mobView">
 						<div class="set_menu_mob">
-							
+							<ul>
+                                <li id="my_photo" class="activeUl">My Photos</li>
+                                <li id="my_review">My reviews</li>
+                            </ul>
 						</div>
 				    </div>
 			    </div>

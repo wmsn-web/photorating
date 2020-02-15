@@ -51,7 +51,10 @@ echo meta($meta);
 					</div>
 					<div class="mobView">
 						<div class="set_menu_mob">
-							
+							<ul>
+                                <li id="my_photo">My Photos</li>
+                                <li id="my_review" class="activeUl">My reviews</li>
+                            </ul>
 						</div>
 				    </div>
 			    </div>

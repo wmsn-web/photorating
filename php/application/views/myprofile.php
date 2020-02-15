@@ -47,8 +47,8 @@ echo meta($meta);
 					<div class="mobView">
                         <div class="set_menu_mob">
                             <ul>
-                                <li class="activeUl" onclick="location.href='myphoto'">My Photos</li>
-                                <li id="myreviews">My reviews</li>
+                                <li id="my_photo">My Photos</li>
+                                <li id="my_review">My reviews</li>
                             </ul>
                         </div>
                     </div>

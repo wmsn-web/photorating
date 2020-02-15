@@ -47,8 +47,7 @@ echo meta($meta);
 					<div class="mobView">
                         <div class="set_menu_mob">
                             <ul>
-                                <li class="activeUl" onclick="location.href='myphoto'">Profile</li>
-                                <li id="photos">Photos</li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -75,7 +74,7 @@ echo meta($meta);
                      $rqst = $checkRqst->rqst;
                      if($status==1){
                      	$btnTxt = "Message";
-                     	$disp= "";
+                     	$disp= "disabled='disabled'";
                      }
                      if($status==0){
                      	$btnTxt = "Request Sent";
@@ -91,7 +90,7 @@ echo meta($meta);
 				<div class="col-md-4">
 					<div align="center">
 						<div class="pro_pic">
-							<img class="pro_img" src="uploads/<?= $profilePic; ?>" /><br>
+							<img class="pro_img" src="uploads/<?= $getUser->image; ?>" /><br>
 					    </div>
 					    <div class="edtBtndd">
 					    	<?= form_open("userProfile/sendRequest"); ?>
@@ -99,7 +98,7 @@ echo meta($meta);
 					    		<input type="hidden" name="userEmail" value="<?= $getUser->email; ?>">
 					    		<input type="hidden" name="authName" value="<?= $imgPro->name; ?>">
 					    		<input type="hidden" name="authEmail" value="<?= $imgPro->email; ?>">
-					    		<button ><?= $btnTxt; ?></button>
+					    		<button <?= $disp ?> ><?= $btnTxt; ?></button>
 					        </form>
 					    </div>
 				    </div>

@@ -1,7 +1,7 @@
 $(document).ready(function(){
                	$(".filters").hide();
                     $("#chngp").hide();
-                    $("#mset").hide();
+                    $("#mset").show();
                     $("#gifPic").hide();
                     $("#rrtt").show();
                     $(".trBtn").show();
@@ -136,9 +136,7 @@ $(".trBtn").click(function(){
           },
     function(response,status){
                if(response=="1"){
-                    $("#gifPic").show();
-                    $("#rrtt").hide();
-                    $(".trBtn").hide();
+                    location.href="?uid="+imgid+"&user_email="+user;
                }
           }
 
@@ -163,13 +161,21 @@ $("#trBtns").click(function(){
           },
     function(response,status){
                if(response=="1"){
-                    $("#gifPics").show();
-                    $("#rrtts").hide();
-                    $("#trBtns").hide();
+                    location.href="?uid="+imgid+"&user_email="+user;
                }
           }
 
      )
 }
+});
+$("#my_review").click(function(){
+    $("#my_review").addClass("activeUl");
+    $("#my_photo").removeClass("activeUl");
+     location.href="myreviews";
+});
+$("#my_photo").click(function(){
+    $("#my_review").removeClass("activeUl");
+    $("#my_photo").addClass("activeUl");
+    location.href="myphoto";
 });
 

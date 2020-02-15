@@ -2,7 +2,9 @@
 	    <nav class="navbar navbar-expand navbar-dark">
 		        <div class="collapse navbar-collapse" id="navbarsExample02">
 		            <ul class="navbar-nav mr-auto">
-		                <li class="nav-item item-logo">Logo</li>
+		                <li class="nav-item item-logo">
+                    <img src="assets/images/logo/pht_logo.png">  
+                    </li>
 		            </ul>
 		            <a href="javascript:void(0)" class="navbar-brand">
 		            	<span class="fltr">Filter</span>
