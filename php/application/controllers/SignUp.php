@@ -1,7 +1,5 @@
 <?php
-/**
- * 
- */
+
 class SignUp extends CI_controller
 {
 	
@@ -9,9 +7,15 @@ class SignUp extends CI_controller
 	{
 		$this->load->library('session');
 		$this->load->model("Home_model");
+		if($this->session->userdata('userEmail')){
+         
+         redirect("home");
+
+		}else{
 		$authMail="";
 		$galDtls = $this->Home_model->HomeGallery($authMail);
 		$this->load->view('signuppage',['galDtls'=>$galDtls]);
+	}
 	}
 	public function register(){
 		$this->load->library('session');
@@ -26,7 +30,8 @@ class SignUp extends CI_controller
 			redirect("settings");
 		}else{
 			//Already exist
-			echo "Email address Already Exist!";
+			$this->session->set_flashdata(["feedback"=>"Email Already Exist!"]);
+			redirect("signUp");
 		}
 		
 

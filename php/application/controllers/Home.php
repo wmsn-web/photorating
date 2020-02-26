@@ -42,7 +42,7 @@ class Home extends CI_controller
 		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"getGal"=>$getGal,"imgPro"=>""]);
 	}
 	
-	}
+	} 
 
 	public function login(){
 		    $useremail = $this->input->post('email');
@@ -63,6 +63,7 @@ class Home extends CI_controller
                   }
 				
 			}else{
+				$this->session->set_flashdata(["feedback"=>"Invalid Login credential or Pending Admin Approval"]);
 				return redirect('signin');
 					}
 	}
@@ -74,13 +75,14 @@ class Home extends CI_controller
 	}
 
 	public function rateStar(){
-		$rate = $this->input->post('rate');
+		$rate = $this->input->post('rate_star');
 		$main_user = $this->input->post('main_user');
 		$from_user = $this->input->post('from_user');
 		$imgid = $this->input->post('imgid');
 
 		$this->load->model("Home_model");
-		echo $doRate = $this->Home_model->makeRate($rate,$main_user,$from_user,$imgid);
+		 $doRate = $this->Home_model->makeRate($rate,$main_user,$from_user,$imgid);
+		 return redirect("?uid=".$imgid."&user_email=".$main_user);
 	}
 }
 

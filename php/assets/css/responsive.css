@@ -130,13 +130,13 @@
 .ratingd label:after {
 
    content: "\2606";
-   font-size: 60px;
+   font-size: 30px;
    color: #F39A9A;
 }
 .ratingd label:brfore {
 
    content: "\2606";
-   font-size: 60px;
+   font-size: 30px;
    color: #F39A9A;
 }
 
@@ -149,7 +149,7 @@
     .ratingd > label {
       display: inline-block;
       position: relative;
-      font-size: 60px;
+      font-size: 30px;
     }
     .ratingd > label:hover,
     .ratingd > label:hover ~ label {

@@ -63,9 +63,15 @@ echo meta($meta);
 		</div>
 	</div>
 	<div class="container-fluidx">
+		<?php
+        $gallerys = $galDtls;
+        if($gallerys==0){
+        	echo "<div class='alert alert-danger'>No Photos Uploaded</div>";
+        }else{ ?>
 	  <section id="photos">
 
         <?php
+       
              foreach ($galDtls as $galDtl) {
                  $images = $galDtl['image'];
                  if($images==""){
@@ -174,12 +180,23 @@ echo meta($meta);
     			    </ul>
                 <?php if($this->session->userdata('userEmail')){ ?>
                 	<?php  if($getRevs==1){ ?> 
-	            			    	   <h3 align="center"> Thank you for Rate this Photo</h3>
+	            			    	   <h3 align="center"> You have rated this picture</h3>
 	            			  <?php }  else{  ?>
 	            			  	
 	            			  	<div id="rrtts">
+	            			  		<form action="home/rateStar" method="post">
     			    <fieldset class="ratingd">
     			    	<h5>Please Rate this Photo</h5>
+									<input type="radio" id="star10s" name="rating" value="10" />
+									<label class="full" for="star10s" title="Awesome - 5 stars"></label>
+									<input type="radio" id="star9s" name="rating" value="9" />
+									<label class="full" for="star9s" title="Pretty good - 4 stars"></label>
+									<input type="radio" id="star8s" name="rating" value="8" />
+									<label class="full" for="star8s" title="Meh - 3 stars"></label>
+									<input type="radio" id="star7s" name="rating" value="7" />
+									<label class="full" for="star7s" title="Kinda bad - 2 stars"></label>
+									<input type="radio" id="star6s" name="rating" value="6" />
+									<label class="full" for="star6s" title="Sucks big time - 1 star"></label>
 									<input type="radio" id="star5s" name="rating" value="5" />
 									<label class="full" for="star5s" title="Awesome - 5 stars"></label>
 									<input type="radio" id="star4s" name="rating" value="4" />
@@ -192,11 +209,12 @@ echo meta($meta);
 									<label class="full" for="star1s" title="Sucks big time - 1 star"></label>
 								</fieldset>
 				<div align="center">
-					                <input type="hidden" id="froms"  name="" value="<?= $imgPro->email ?>">
-		            			    <input type="hidden" id="users"  name="" value="<?= $profDtls["email"] ?>">
-		            			    <input type="hidden" id="imgids"  name="" value="<?= $_GET['uid']; ?>">
+					                <input type="hidden" id="froms"  name="from_user" value="<?= $imgPro->email ?>">
+		            			    <input type="hidden" id="users"  name="main_user" value="<?= $profDtls["email"] ?>">
+		            			    <input type="hidden" id="imgids"  name="imgid" value="<?= $_GET['uid']; ?>">
 		            			    <span id="mssg" class="text-danger"></span>
-					<button id="trBtns" class="trBtn">Submit</button>
+					<button id="trBtnsddd" class="trBtn">Submit</button>
+				</form>
 				</div>
 				<?php } }else{
 
@@ -208,6 +226,7 @@ echo meta($meta);
 		    </div>
 	</div>
 </div>
+<?php } ?>
 <?php } ?>
 
 <?php include("inc/modal.php"); ?>

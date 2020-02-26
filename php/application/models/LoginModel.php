@@ -1,7 +1,7 @@
 <?php
 class LoginModel extends CI_Model{
 	public function login_valid($useremail, $password){
-		$q = $this->db->where(['email'=>$useremail,'password'=>$password])
+		$q = $this->db->where(['email'=>$useremail,'password'=>$password,'admin_appr'=>'1'])
 		              ->get('user_profile');
 		if($q->num_rows()){
 			$qs =$q->row();

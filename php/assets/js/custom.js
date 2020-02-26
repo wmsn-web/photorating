@@ -59,6 +59,7 @@ $(document).ready(function(){
 $("#email").focus();
                });
 
+
 $("#email").blur(function(){
      var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
      var eml = $("#email").val();
@@ -70,26 +71,39 @@ $("#email").blur(function(){
           $("#spn").html('<i class="fa fa-check-circle text-success"></i>');
           $("#email").removeClass("danger");
      }
-     $("#pass").blur(function(){
+     $("#pass").keyup(function(){
           var pas = $("#pass").val();
-          if(pas==""){
+          var lengths = pas.length;
+          var lengthValidate = 8;
+          if(pas=="" || lengths < lengthValidate){
                $("#spn2").html('<i class="fa fa-close text-danger"></i>');
           $("#pass").addClass("danger");
+          $("#conpass").attr("readonly","readonly");
+          $("#regd").attr('disabled','disabled');
           }else{
                $("#spn2").html('<i class="fa fa-check-circle text-success"></i>');
           $("#pass").removeClass("danger");
+          $("#conpass").removeAttr("readonly","readonly");
+          $("#regd").removeAttr('disabled','disabled');
           }
      });
-     $("#conpass").blur(function(){
+     $("#conpass").keyup(function(){
           var pas = $("#pass").val();
           var cpas = $("#conpass").val();
           if(cpas==""){
                $("#spn3").html('<i class="fa fa-close text-danger"></i>');
           $("#conpass").addClass("danger");
-          }else{
+          $("#regd").attr('disabled','disabled');
+          }else if(cpas==pas){
                $("#spn3").html('<i class="fa fa-check-circle text-success"></i>');
           $("#conpass").removeClass("danger");
+          $("#regd").removeAttr('disabled','disabled');
+          }else{
+              $("#spn3").html('<i class="fa fa-close text-danger"></i>');
+          $("#conpass").addClass("danger"); 
+          $("#regd").attr('disabled','disabled');
           }
+
      });
 });
 
@@ -119,7 +133,7 @@ $("#uplLbl").change(function(){
 $(".lblStar").click(function(){
 
 });
-$(".trBtn").click(function(){
+$(".trBtn88").click(function(){
      var dd= $("input[name='rate_star']:checked").val();
      var user= $("#user").val();
      var fromUser= $("#from").val();
@@ -144,7 +158,7 @@ $(".trBtn").click(function(){
 }
 });
 
-$("#trBtns").click(function(){
+$("#trBtnsfer").click(function(){
      var dd= $("input[name='rating']:checked").val();
      var user= $("#users").val();
      var fromUser= $("#froms").val();
@@ -177,5 +191,20 @@ $("#my_photo").click(function(){
     $("#my_review").removeClass("activeUl");
     $("#my_photo").addClass("activeUl");
     location.href="myphoto";
+});
+
+$("#abtme").keyup(function(){
+    var txts = $("textarea#abtme").val();
+  var mmatchTxt = /^[a-zA-Z0-9,. \r\n]{1,}$/;
+  if(!txts.match(mmatchTxt)){
+     $("#abtMsg").html("Do not Use Special Characters except fullstop, number and comma")
+     $("#abtMsg").css("color","#f00")
+     $("#stngBtn").attr("disabled","disabled");
+  }else{
+     $("#abtMsg").html("")
+     $("#stngBtn").removeAttr("disabled","disabled");
+  }
+  
+  
 });
 

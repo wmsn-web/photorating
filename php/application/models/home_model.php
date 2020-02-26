@@ -22,7 +22,11 @@ class Home_model extends CI_model
 		
 			//$query = $this->db->query("SELECT * FROM gallery WHERE user_email!='$authMail'  ORDER BY id DESC");
 			//return $query->result();
-	   	    $query = $this->db->query("SELECT * FROM gallery WHERE user_email!='$authMail'  ORDER BY id DESC");
+	   	    $query = $this->db->query("SELECT * FROM gallery WHERE user_email!='$authMail' AND admin_appr='1'  ORDER BY id DESC");
+	   	    $nm = $query->num_rows();
+	   	    if($nm==0){
+	   	    	return $galData="0";
+	   	    }else{
 			$q =$query->result();
 			foreach ($q as $qs) {
 				$galUser = $qs->user_email;
@@ -58,6 +62,7 @@ class Home_model extends CI_model
 
 			}
 			return $galData;
+		}
 		}
 		
 				

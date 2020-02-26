@@ -48,33 +48,45 @@
 	            			     ?>
 
 	            			    <?php  if($getRevs==1){ ?>
-	            			    	   <h3 align="center"> Thank you for Rate this Photo</h3>
+	            			    	   <h3 align="center"> You have rated this picture</h3>
 	            			  <?php }  else{  ?>
 	            			  	
 	            			  	<div id="rrtt">
+	            			  		<form action="home/rateStar" method="post">
 	            			    <fieldset class="rating">
 	            			    	
 	            			    	
     			    	<h5>Please Rate this Photo</h5>
+									<input type="radio" id="star10" name="rate_star" value="10" />
+									<label class="full" for="star10" ></label>
+									<input type="radio" id="star9" name="rate_star" value="9" />
+									<label class="full" for="star9" ></label>
+									<input type="radio" id="star8" name="rate_star" value="8" />
+									<label class="full" for="star8"></label>
+									<input type="radio" id="star7" name="rate_star" value="7" />
+									<label class="full" for="star7" ></label>
+									<input type="radio" id="star6" name="rate_star" value="6" />
+									<label class="full" for="star6" ></label>
 									<input type="radio" id="star5" name="rate_star" value="5" />
-									<label class="full" for="star5" title="Awesome - 5 stars"></label>
+									<label class="full" for="star5" ></label>
 									<input type="radio" id="star4" name="rate_star" value="4" />
-									<label class="full" for="star4" title="Pretty good - 4 stars"></label>
+									<label class="full" for="star4" ></label>
 									<input type="radio" id="star3" name="rate_star" value="3" />
-									<label class="full" for="star3" title="Meh - 3 stars"></label>
+									<label class="full" for="star3" ></label>
 									<input type="radio" id="star2" name="rate_star" value="2" />
-									<label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-									<input type="radio" id="star1" name="rate_star" value="1" />
+									<label class="full" for="star2" ></label>
+									<input type="radio" id="star1"  />
 									<label class="full" for="star1" title="Sucks big time - 1 star"></label>
 								</fieldset>
 		            			    <?php if($this->session->userdata('userEmail')){ ?>
-		            			    <input type="hidden" id="from"  name="" value="<?= $imgPro->email ?>">
+		            			    <input type="hidden" id="from"  name="from_user" value="<?= $imgPro->email ?>">
 
-		            			    <input type="hidden" id="user"  name="" value="<?= $profDtls["email"]; ?>">
-		            			    <input type="hidden" id="imgid"  name="" value="<?= $_GET['uid']; ?>">
+		            			    <input type="hidden" id="user"  name="main_user" value="<?= $profDtls["email"]; ?>">
+		            			    <input type="hidden" id="imgid"  name="imgid" value="<?= $_GET['uid']; ?>">
 		            			    <span id="mssg" class="text-danger"></span>
 		            			    <div align="center">
 		            			    <button class="trBtn">Rate Now</button>
+		            			</form>
 		            			</div>
 		            			</div>
 		            			<?php  }else{

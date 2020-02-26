@@ -22,7 +22,7 @@ echo meta($meta);
     <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
     <?php include("inc/layouts.php"); ?>
 
-<title>Signin</title>
+<title>Signup</title>
 </head>
 <body>
 	<?php include("inc/signup_menu.php"); ?>
@@ -161,7 +161,7 @@ echo meta($meta);
 <section class="bottom-footer">
 	 	
 	 </section>
-<?php include("inc/modal.php"); ?>
+<?php //include("inc/modal.php"); ?>
 <?php include("inc/js.php"); ?>
         <script type="text/javascript" src="assets/js/wow.min.js"></script>
 </body>

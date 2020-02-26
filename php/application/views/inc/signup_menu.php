@@ -34,12 +34,18 @@
 	            	
                     <div class="row">
   <div class="col-md-10 offset-md-2">
+    
   	 <div class="pgLogin">
+      <?php if($feedback = $this->session->flashdata("feedback")){ ?>
+        <div class="alert alert-danger">
+          <?= $feedback; ?>
+        </div>
+     <?php } ?>
   	 	<h3>Signup</h3>
   	 	<form action="signUp/register" method="post">
   	 		<div class="form-group">
   	 			<label>Email Address <span id="spn"></span></label>
-  	 			<input type="text" id="email" name="email" class="form-control" required="required">
+  	 			<input type="email" id="email" name="email" class="form-control" value="<?php echo set_value('email'); ?>" required="required">
           
   	 		</div>
   	 		<div class="form-group">
@@ -48,7 +54,7 @@
   	 		</div>
         <div class="form-group">
           <label>Confirm Password <span id="spn3"></span></label>
-          <input type="password" id="conpass" name="password" class="form-control" required="required">
+          <input type="password" id="conpass" name="passwords" class="form-control" required="required">
         </div>
   	 		<div class="form-group">
   	 			
@@ -56,7 +62,7 @@
   	 		</div>
   	 		<div class="form-group">
   	 			<div align="center">
-  	 				<button class="btn-dangers">Register</button>
+  	 				<button id="regd" class="btn-dangers">Register</button>
   	 			</div>
   	 		</div>
   	 	</form>

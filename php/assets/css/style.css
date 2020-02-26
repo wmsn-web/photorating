@@ -51,7 +51,18 @@ body {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-
+.abthead{
+  width:100%;
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  padding: 6px;
+}
+.abthead h2{
+  text-align: center;
+}
+.abtText{
+  padding-top: 25px;
+}
 #prof-sidebar-wrapper {
   z-index: 1000;
   position: absolute;
@@ -679,13 +690,13 @@ My Reviews
 .rating label:after {
 
    content: "\2606";
-   font-size: 60px;
+   font-size: 30px;
    color: #F39A9A;
 }
 .rating label:brfore {
 
    content: "\2606";
-   font-size: 60px;
+   font-size: 30px;
    color: #F39A9A;
 }
 
@@ -698,7 +709,7 @@ My Reviews
     .rating > label {
       display: inline-block;
       position: relative;
-      font-size: 60px;
+      font-size: 30px;
     }
     .rating > label:hover,
     .rating > label:hover ~ label {

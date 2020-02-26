@@ -15,7 +15,7 @@
                 <div class="row">
                   <div class="form-group col-md-8">
                       <label>Email Address</label>
-                      <?= form_input(array("type"=>"text", "class"=>"form-control", "name"=>"email")); ?>
+                      <?= form_input(array("type"=>"email", "class"=>"form-control", "name"=>"email")); ?>
                   </div>
                   <div class="form-group col-md-8">
                       <label>Password</label>
@@ -77,7 +77,7 @@
                       <input type="text" class="form-control" name="">
                   </div>
                   <div class="form-group col-md-12">
-                      <button class="btn btn-danger">Signup</button><br>
+                      <button class="btn btn-danger">Signups</button><br>
                       
                   </div>
               </div>

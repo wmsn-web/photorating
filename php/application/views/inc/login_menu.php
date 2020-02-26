@@ -35,6 +35,9 @@
                     <div class="row">
   <div class="col-md-10 offset-md-2">
   	 <div class="pgLogin">
+      <?php if($feedback = $this->session->flashdata("feedback")){ ?>
+        <span class="text-danger"><?= $feedback; ?></span>
+      <?php } ?>
   	 	<h3>Login</h3>
   	 	<form action="home/login" method="post">
   	 		<div class="form-group">

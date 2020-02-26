@@ -7,10 +7,10 @@ class SignUpModel extends CI_model
 	
 	public function registerData($useremail,$password)
 	{
-		$chk = $this->db->query("SELECT * FROM user_profile WHERE email='$useremail' AND password='$password'");
+		$chk = $this->db->query("SELECT * FROM user_profile WHERE email='$useremail'");
 
 		$getNum = $chk->num_rows();
-		if($getNum==1){
+		if($getNum > 0){
 			return FALSE;
 			 
 		}else{

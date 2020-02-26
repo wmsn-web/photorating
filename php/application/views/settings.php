@@ -121,7 +121,8 @@ echo meta($meta);
                             </tr>
                             <tr>
                                 <th>About Me:</th>
-                                <td><textarea rows="3" class="form-control" name="about"><?= $getDtlsd->about; ?></textarea>
+                                <td><span id="abtMsg"></span>
+                                    <textarea id="abtme" rows="3" class="form-control" name="about"><?= $getDtlsd->about; ?></textarea>
                                   <input type="hidden" name="hide_img" value="<?= $getDtlsd->image; ?>" >
                                 </td>
 
@@ -137,7 +138,7 @@ echo meta($meta);
                         <?php } ?>
                             <tr>
                                 <th>&nbsp;</th>
-                                <td><button class="btn btn-danger">Save</button></td>
+                                <td><button id="stngBtn" class="btn btn-danger">Save</button></td>
                             </tr>
                         </form>
                         </table>
