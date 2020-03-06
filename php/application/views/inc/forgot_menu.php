@@ -2,7 +2,9 @@
 	    <nav class="navbar navbar-expand navbar-dark">
 		        <div class="collapse navbar-collapse" id="navbarsExample02">
 		            <ul class="navbar-nav mr-auto">
-		                <li class="nav-item item-logo">Logo</li>
+		                <li class="nav-item item-logo">
+                       <img src="assets/images/logo/pht_logo.png">  
+                    </li>
 		            </ul>
 		            <a href="javascript:void(0)" class="navbar-brand">
 		            	
@@ -38,25 +40,16 @@
       <?php if($feedback = $this->session->flashdata("feedback")){ ?>
         <span class="text-danger"><?= $feedback; ?></span>
       <?php } ?>
-  	 	<h3>Login</h3>
-  	 	<form action="home/login" method="post">
+  	 	<h3>Forgot Password?</h3>
+  	 	<form action="forgotPass/sendAct" method="post">
   	 		<div class="form-group">
-  	 			<label>Email Address</label>
+  	 			<label>Enter Registerd Email Address</label>
   	 			<input type="email" name="email" class="form-control">
   	 		</div>
-  	 		<div class="form-group">
-  	 			<label>Password</label>
-  	 			<input type="password" name="password" class="form-control">
-  	 		</div>
-  	 		<div class="form-group">
-  	 			<input type="checkbox" name="check">
-  	 			Remember Me
-  	 			<?= nbs(8) ?>
-  	 			<a href="forgotPass">Forgot Password?</a>
-  	 		</div>
+  	 		
   	 		<div class="form-group">
   	 			<div align="center">
-  	 				<button class="btn-dangers">Login</button>
+  	 				<button class="btn-dangers">Submit</button>
   	 			</div>
   	 		</div>
   	 	</form>

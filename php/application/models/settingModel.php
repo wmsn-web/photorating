@@ -35,7 +35,7 @@ class SettingModel extends CI_model
                `dob`='$dobs',
                `age`='$ages',
                `gender`='$genders',
-               `about`='$abouts',`image`='$imgss',`activation`='on' WHERE `email`='$emails'");
+               `about`='$abouts',`image`='$imgss',`activation`='on',`admin_appr`='2' WHERE `email`='$emails'");
 
 	if($updt){
 		return TRUE;

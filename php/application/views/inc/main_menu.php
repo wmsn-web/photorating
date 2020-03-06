@@ -7,7 +7,9 @@
                     </li>
 		            </ul>
 		            <a href="javascript:void(0)" class="navbar-brand">
+                  <?php if($this->uri->segment(1)=="" || $this->uri->segment(1)=="home" ){ ?>
 		            	<span class="fltr">Filter</span>
+                  <?php } ?>
 		            	<span class="menus">Menu</span>
 		                <img  id="tgl" src="assets/images/menubars.png" alt="menuBar" />
 		            </a>

@@ -21,12 +21,13 @@ class MyPhotomodel extends CI_model
 
 		$name = $sql2->name;
 		$user_email = $sql2->email;
+		$gen = $sql2->gender;
 
 		$sql3 = $this->db->query("SELECT * FROM gallery WHERE user_email='$email'")->num_rows();
 		if($sql3>5){
 			return $ret="no";
 		}else{
-			$sql4 = $this->db->query("INSERT INTO `gallery` SET `user_email`='$user_email',`name`='$name',`image`='$imgs'");
+			$sql4 = $this->db->query("INSERT INTO `gallery` SET `user_email`='$user_email',`name`='$name',`image`='$imgs',`gender`='$gen'");
 		}
 
 	}

@@ -5,7 +5,7 @@
 		                <li class="nav-item item-logo">Logo</li>
 		            </ul>
 		            <a href="javascript:void(0)" class="navbar-brand">
-		            	<span class="fltr">Filter</span>
+		            	
 		            	<span class="menus">Menu</span>
 		                <img  id="tgl" src="assets/images/menubars.png" alt="menuBar" />
 		            </a>

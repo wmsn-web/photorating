@@ -67,6 +67,10 @@
                             <span class="float-left"> Date of Birth </span>
                             <span class="float-right text-muted"> <?= $userDtls->dob; ?> </span>
                           </p>
+                          <p class="clearfix">
+                            <span class="float-left"> Location IP </span>
+                            <span class="float-right text-muted"> <?= $userDtls->user_ip; ?> </span>
+                          </p>
                           
                         </div>
                         <button onClick="location.href='viewUser/profileApprove?id=<?= $userDtls->id; ?>'" class="btn btn-gradient-primary btn-block"><?= $stTxt; ?></button>

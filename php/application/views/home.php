@@ -68,7 +68,7 @@ echo meta($meta);
         if($gallerys==0){
         	echo "<div class='alert alert-danger'>No Photos Uploaded</div>";
         }else{ ?>
-	  <section id="photos">
+	  <section id="photos"> 
 
         <?php
        
@@ -187,6 +187,7 @@ echo meta($meta);
 	            			  		<form action="home/rateStar" method="post">
     			    <fieldset class="ratingd">
     			    	<h5>Please Rate this Photo</h5>
+    			    	            <label>10</label>
 									<input type="radio" id="star10s" name="rating" value="10" />
 									<label class="full" for="star10s" title="Awesome - 5 stars"></label>
 									<input type="radio" id="star9s" name="rating" value="9" />
@@ -207,6 +208,7 @@ echo meta($meta);
 									<label class="full" for="star2s" title="Kinda bad - 2 stars"></label>
 									<input type="radio" id="star1s" name="rating" value="1" />
 									<label class="full" for="star1s" title="Sucks big time - 1 star"></label>
+									<label>1</label>
 								</fieldset>
 				<div align="center">
 					                <input type="hidden" id="froms"  name="from_user" value="<?= $imgPro->email ?>">

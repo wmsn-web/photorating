@@ -27,10 +27,11 @@ class Home extends CI_controller
 		$getGal = $this->Home_model->getgal($uid);
 	}
 
+		//echo $galDtls;
 		$this->load->view("home",['galDtls'=>$galDtls,'profDtls'=>$profDtls,"imgPro"=>$imgPro,"getGal"=>$getGal,"getRevs"=>$getRevs]);
 
 		
-	}else{
+	}else{ 
 		$authMail="";
 		$galDtls = $this->Home_model->HomeGallery($authMail);
 		$profDtls = "";
@@ -83,6 +84,14 @@ class Home extends CI_controller
 		$this->load->model("Home_model");
 		 $doRate = $this->Home_model->makeRate($rate,$main_user,$from_user,$imgid);
 		 return redirect("?uid=".$imgid."&user_email=".$main_user);
+	}
+
+	function test()
+	{
+		$this->load->model("Home_model");
+		$tts = $this->Home_model->testModel();
+		print_r("<pre>");
+		print_r($tts);
 	}
 }
 

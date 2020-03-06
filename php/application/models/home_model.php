@@ -13,20 +13,25 @@ class Home_model extends CI_model
 	public function homeGallery($authMail)
 	   {
 
-	   	$type = "";
+	   	
 	   	if(isset($_GET['type'])){
-	   		$type = $_GET['type'];
+	   		$gen = $_GET['type'];
+	   		$type="gender='$gen' AND";
+	   	}else{
+	   		$type = "";
 	   	}
 
 
 		
 			//$query = $this->db->query("SELECT * FROM gallery WHERE user_email!='$authMail'  ORDER BY id DESC");
 			//return $query->result();
-	   	    $query = $this->db->query("SELECT * FROM gallery WHERE user_email!='$authMail' AND admin_appr='1'  ORDER BY id DESC");
+	   	    $query = $this->db->query("SELECT * FROM gallery WHERE $type user_email!='$authMail' AND admin_appr='1'  ORDER BY id DESC");
 	   	    $nm = $query->num_rows();
 	   	    if($nm==0){
+	   	    	
 	   	    	return $galData="0";
 	   	    }else{
+
 			$q =$query->result();
 			foreach ($q as $qs) {
 				$galUser = $qs->user_email;
@@ -37,17 +42,18 @@ class Home_model extends CI_model
 				$code = @strtolower($cd[1]);
 				$flag = "http://www.geonames.org/flags/x/".$code.".gif";
 				$gender = $query2->gender;
-                 
+                /* 
                  if($type==$gender){
                  	$imgStyle = "style='display:block;'";
                  }elseif($type==""){
                  	$imgStyle = "style='display:block;'";
                  }else{
                     $imgStyle = "style='display:none;'";
+
                  }
-
+                */
                  
-
+                 $imgStyle = "";
 				if($gender=="Male"){
 					$genderIcon = "<i class='fa fa-male'></i>";
 				}elseif($gender=="Female"){
@@ -111,6 +117,20 @@ public function getRevsGal($authMail,$uid){
 	 return $sqlsn->num_rows();
 
 	  
+}
+
+public function gtImg($user)
+{
+	$query = $this->db->query("SELECT * FROM gallery WHERE user_email='$user'")->result();
+	return $query;
+}
+
+function testModel()
+
+{
+	$authMail="";
+	$query = $this->db->query("SELECT gallery .image FROM gallery, user_profile WHERE gallery .user_email!='$authMail' AND gallery .admin_appr='1' AND user_profile .gender='Female'  ORDER BY gallery .id DESC" )->result();
+	return $query;
 }
 
 }

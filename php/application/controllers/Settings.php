@@ -54,7 +54,7 @@ return redirect('settings');
 		if($hide_img==""){
 
                 $config['upload_path']          = 'uploads/';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|JPG';
                 $config['max_size']             = 2000;
                 
                 $this->load->library('upload', $config);
@@ -82,7 +82,7 @@ return redirect('settings');
 		$this->load->model("settingModel");
 		$addAll = $this->settingModel->updatePro($name, $email, $country, $dob, $age, $gender, $about, $imgs);
 
-		       $this->session->set_flashdata(["feedback"=>"Profile Updated Successfully","status"=>"success"]);
+		       $this->session->set_flashdata(["feedback"=>"Profile Updated Successfully. Pending for Admin Approval","status"=>"success"]);
 			
 				return redirect('settings');
 				

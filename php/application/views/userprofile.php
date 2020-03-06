@@ -38,8 +38,8 @@ echo meta($meta);
 					<div class="deskView">
 						<div class="set_menu_pro">
 							<ul>
-								<li><a<?=($this->uri->segment(1) == 'userProfile' ? ' class="actv"' : '');?> href="myprofile">Profile</a></li>
-								<li><a<?=($this->uri->segment(1) == 'photos' ? ' class="actv"' : '');?> href="myphoto">Photos</a></li>
+								<li><a<?=($this->uri->segment(1) == 'userProfile' ? ' class="actv"' : '');?> href="userProfile?user=<?= $_GET['user']; ?>">Profile</a></li>
+								<li><a<?=($this->uri->segment(1) == 'UserPhotos' ? ' class="actv"' : '');?> href="UserPhotos?user=<?= $_GET['user']; ?>">Photos</a></li>
 								
 							</ul>
 						</div>

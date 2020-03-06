@@ -26,6 +26,18 @@
                 <i class="mdi mdi-account-multiple menu-icon"></i>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ApprovePhotos">
+                <span class="menu-title">Approve Photos</span>
+                <i class="mdi mdi-image menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="AllImages">
+                <span class="menu-title">All Images</span>
+                <i class="mdi mdi-image menu-icon"></i>
+              </a>
+            </li>
              
             
             <li class="nav-item">

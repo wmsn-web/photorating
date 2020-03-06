@@ -67,4 +67,21 @@ class AdminModel extends CI_model
 		$sqery = $this->db->query("SELECT * FROM mail_setup")->row();
 		return $sqery;
 	}
+
+	function getpendingGal()
+	{
+		$sqery = $this->db->query("SELECT * FROM gallery WHERE admin_appr='0'");
+		$qq = $sqery->result();
+		
+			return $qq ;
+
+	}
+	function getAllImages()
+	{
+		$sqery = $this->db->query("SELECT * FROM gallery WHERE admin_appr='1'");
+		$qq = $sqery->result();
+		
+			return $qq ;
+
+	}
 }

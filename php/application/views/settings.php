@@ -65,6 +65,21 @@ echo meta($meta);
                     </div>
                 </div>
                 <div class="col-md-8">
+                    <?php
+                        $mane =$getDtlsd->name;
+                        $loc = $getDtlsd->country;
+                        if($mane=="" || $loc==""){
+                            $readonly = "nnreadonly";
+                            $disp = "display:none";
+                            $disp2 = "display:block";
+                            
+                        }else{
+                            $readonly = "readonly";
+                            $disp = "display:block";
+                            $disp2 = "display:none";
+                            
+                        }
+                    ?>
                     
                     <div id="mset">
                         <table class="set_tbl table-striped">
@@ -73,7 +88,7 @@ echo meta($meta);
                             <h5>Edit Profile</h5>
                             <tr>
                                 <th>Name:</th>
-                                <td><?= form_input(array("type"=>"text", "class"=>"form-control", "name"=>"name", "value"=>$getDtlsd->name, "required"=>"required")); ?></td>
+                                <td><?= form_input(array("type"=>"text", "class"=>"form-control", "name"=>"name", "value"=>$getDtlsd->name, "required"=>"required","$readonly"=>"readonly")); ?></td>
                             </tr>
                             <tr>
                                 <th>Email:</th>
@@ -81,13 +96,20 @@ echo meta($meta);
                             </tr>
                             <tr>
                                 <th>Location:</th>
-                                <td><select class="form-control" name="country" required="required">
-                                    <option selected="selected" value="<?= $getDtlsd->country; ?>"><?= $getDtlsd->country; ?></option>
-                                    <option>Select</option>
-                                        <?php foreach($cntr as $cnt){ ?>
-                                            <option value="<?= $cnt['country_name']."-".$cnt['code']; ?>"><?= $cnt['country_name']."-".$cnt['code']; ?></option>
-                                          <?php } ?>
-                                    </select></td>
+                                <td>
+                                    <div style="<?= $disp; ?>">
+                                    <?= form_input(array("type"=>"text", "class"=>"form-control", "name"=>"", "value"=>$getDtlsd->country, "readonly"=>"readonly")); ?>
+                                    </div>
+                                    <div style="<?= $disp2; ?>">
+                                        <select class="form-control" name="country" required="required">
+                                            <option value="<?= $getDtlsd->country; ?>"><?= $getDtlsd->country; ?></option>
+                                        <option>Select</option>
+                                            <?php foreach($cntr as $cnt){ ?>
+                                                <option value="<?= $cnt['country_name']."-".$cnt['code']; ?>"><?= $cnt['country_name']."-".$cnt['code']; ?></option>
+                                              <?php } ?>
+                                        </select>
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Date of Birth:</th>
